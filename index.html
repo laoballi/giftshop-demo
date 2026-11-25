@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#e6123d">
+<meta name="description" content="گیفتینو؛ فروشگاه آنلاین هدیه، کادو و سورپرایزهای خاص">
+<title>گیفتینو | فروشگاه اینترنتی هدیه</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --red:#e6123d;
+  --red-dark:#c9002e;
+  --bg:#f5f5f5;
+  --white:#fff;
+  --text:#232933;
+  --muted:#818894;
+  --border:#ededed;
+  --green:#00a86b;
+  --shadow:0 3px 14px rgba(0,0,0,.055);
+  --radius:12px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Vazirmatn',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+}
+button,input{font-family:inherit}
+button{cursor:pointer}
+a{text-decoration:none;color:inherit}
+.container{width:min(1280px,94%);margin:auto}
+
+/* HEADER */
+.header{
+  background:var(--red);
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:0 3px 15px rgba(0,0,0,.12);
+}
+.header-main{
+  height:83px;
+  display:flex;
+  align-items:center;
+  gap:25px;
+}
+.logo{
+  color:white;
+  font-size:29px;
+  font-weight:900;
+  white-space:nowrap;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.logo-icon{font-size:33px}
+.search-box{
+  flex:1;
+  max-width:650px;
+  height:47px;
+  background:#f3f4f6;
+  border-radius:9px;
+  display:flex;
+  align-items:center;
+  padding:0 15px;
+  gap:12px;
+}
+.search-box span{font-size:22px;color:#777}
+.search-box input{
+  border:none;
+  outline:none;
+  background:transparent;
+  flex:1;
+  font-size:13px;
+  color:var(--text);
+}
+.header-actions{
+  margin-right:auto;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.header-btn{
+  color:white;
+  background:transparent;
+  border:1px solid rgba(255,255,255,.55);
+  border-radius:8px;
+  padding:9px 13px;
+  font-size:12px;
+  font-weight:600;
+  display:flex;
+  gap:7px;
+  align-items:center;
+  transition:.2s;
+}
+.header-btn:hover{background:white;color:var(--red)}
+.cart-button{position:relative;font-size:19px}
+.cart-count{
+  position:absolute;
+  top:-9px;
+  right:-8px;
+  background:#fff;
+  color:var(--red);
+  border-radius:50%;
+  min-width:19px;
+  height:19px;
+  display:grid;
+  place-items:center;
+  font-size:10px;
+  font-weight:900;
+}
+.mobile-search{display:none}
+
+/* CATEGORY NAV */
+.category-nav{
+  background:#fff;
+  border-bottom:1px solid var(--border);
+}
+.category-inner{
+  height:47px;
+  display:flex;
+  align-items:center;
+  gap:30px;
+  overflow-x:auto;
+  scrollbar-width:none;
+}
+.category-inner::-webkit-scrollbar{display:none}
+.category-link{
+  white-space:nowrap;
+  font-size:12px;
+  color:#535963;
+  position:relative;
+  height:100%;
+  display:flex;
+  align-items:center;
+  transition:.2s;
+}
+.category-link:hover{color:var(--red)}
+.category-link:first-child{font-weight:700;color:var(--red)}
+.category-link:first-child:after{
+  content:'';
+  height:2px;
+  background:var(--red);
+  position:absolute;
+  bottom:0;
+  right:0;left:0;
+}
+
+/* HERO */
+.hero-section{padding:20px 0 10px}
+.hero{
+  position:relative;
+  height:345px;
+  border-radius:15px;
+  overflow:hidden;
+  background:linear-gradient(110deg,#ed1744,#a60036);
+  color:white;
+}
+.slide{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  padding:50px 7%;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .6s ease;
+}
+.slide.active{opacity:1;visibility:visible}
+.slide-content{max-width:510px;z-index:2}
+.slide-label{
+  background:rgba(255,255,255,.19);
+  display:inline-block;
+  border-radius:30px;
+  padding:6px 15px;
+  font-size:11px;
+  margin-bottom:16px;
+}
+.slide h1{font-size:36px;font-weight:900;line-height:1.6}
+.slide p{font-size:14px;margin-top:9px;color:#ffe1e8}
+.slide-btn{
+  background:white;
+  color:var(--red);
+  border:0;
+  padding:12px 25px;
+  border-radius:8px;
+  margin-top:23px;
+  font-size:13px;
+  font-weight:800;
+  transition:.25s;
+}
+.slide-btn:hover{transform:translateY(-3px);box-shadow:0 6px 20px #81001e55}
+.slide-art{
+  position:absolute;
+  left:8%;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:160px;
+  filter:drop-shadow(0 20px 20px #5c001c55);
+  animation:float 4s ease-in-out infinite;
+}
+@keyframes float{50%{transform:translateY(-57%)}}
+.slider-dots{
+  position:absolute;
+  bottom:17px;
+  right:50%;
+  transform:translateX(50%);
+  display:flex;
+  gap:7px;
+  z-index:5;
+}
+.dot{
+  width:8px;height:8px;border-radius:20px;
+  border:0;background:#ffffff80;transition:.3s;
+}
+.dot.active{width:23px;background:white}
+
+/* BENEFITS */
+.benefits{
+  background:white;
+  border-radius:12px;
+  margin:16px auto;
+  padding:19px 15px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  box-shadow:var(--shadow);
+}
+.benefit{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:12px;
+  border-left:1px solid var(--border);
+}
+.benefit:last-child{border:0}
+.benefit-icon{font-size:25px}
+.benefit strong{font-size:12px;display:block}
+.benefit small{font-size:10px;color:var(--muted)}
+
+/* SECTION */
+.section{margin:26px auto}
+.section-heading{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:16px;
+}
+.section-title{
+  font-size:19px;
+  font-weight:800;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.section-title:before{
+  content:'';
+  width:4px;
+  height:23px;
+  border-radius:5px;
+  background:var(--red);
+}
+.see-all{color:var(--red);font-size:12px;font-weight:700}
+
+/* CATEGORIES */
+.category-cards{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:15px;
+}
+.category-card{
+  background:white;
+  border-radius:12px;
+  padding:20px 10px;
+  text-align:center;
+  box-shadow:var(--shadow);
+  transition:.3s;
+  cursor:pointer;
+}
+.category-card:hover{transform:translateY(-5px);box-shadow:0 8px 22px #00000012}
+.category-emoji{font-size:42px;display:block;margin-bottom:10px}
+.category-card strong{font-size:12px}
+
+/* SPECIAL BANNER */
+.promo-banner{
+  background:linear-gradient(110deg,#202c46,#394d71);
+  border-radius:14px;
+  padding:22px 35px;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  overflow:hidden;
+  margin:27px auto;
+}
+.promo-banner h2{font-size:22px;font-weight:900}
+.promo-banner p{font-size:12px;color:#d5dfef;margin-top:7px}
+.promo-banner .promo-emoji{font-size:75px}
+.promo-banner button{
+  background:white;color:#263650;border:0;
+  padding:11px 20px;border-radius:8px;
+  font-weight:700;font-size:12px;margin-top:13px;
+}
+
+/* PRODUCTS */
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:13px;
+}
+.product-card{
+  background:white;
+  border-radius:11px;
+  padding:12px;
+  position:relative;
+  box-shadow:var(--shadow);
+  transition:transform .3s,box-shadow .3s;
+  overflow:hidden;
+}
+.product-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 10px 28px #00000012;
+}
+.product-image{
+  height:175px;
+  background:#fafafa;
+  border-radius:8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:88px;
+  position:relative;
+  overflow:hidden;
+}
+.discount{
+  position:absolute;
+  top:10px;
+  right:10px;
+  background:var(--red);
+  color:white;
+  font-size:10px;
+  font-weight:800;
+  padding:4px 9px;
+  border-radius:30px;
+}
+.favorite{
+  position:absolute;
+  top:8px;
+  left:9px;
+  border:0;
+  background:white;
+  width:30px;height:30px;
+  border-radius:50%;
+  font-size:16px;
+  color:#aaa;
+  z-index:2;
+  transition:.2s;
+}
+.favorite.active{color:var(--red)}
+.product-title{
+  font-size:12px;
+  font-weight:600;
+  line-height:1.9;
+  height:46px;
+  margin-top:10px;
+  overflow:hidden;
+}
+.rating{
+  font-size:10px;
+  color:#e9a500;
+  margin:8px 0;
+}
+.rating span{color:#777;margin-right:4px}
+.price-area{display:flex;flex-direction:column;gap:2px}
+.old-price{
+  font-size:10px;
+  color:#a0a0a0;
+  text-decoration:line-through;
+  height:16px;
+}
+.price-row{display:flex;align-items:center;justify-content:space-between}
+.price{
+  font-size:14px;
+  font-weight:900;
+  color:#252a33;
+}
+.currency{font-size:10px;font-weight:500}
+.add-cart{
+  background:#fff0f3;
+  border:1px solid #ffe0e7;
+  color:var(--red);
+  width:34px;height:34px;
+  border-radius:8px;
+  font-size:19px;
+  transition:.2s;
+}
+.add-cart:hover{background:var(--red);color:white}
+.stock{font-size:9px;color:var(--green);margin-top:8px}
+
+/* COUNTDOWN */
+.countdown-section{
+  background:#fff;
+  border-radius:13px;
+  padding:20px;
+  margin:27px auto;
+  box-shadow:var(--shadow);
+}
+.countdown-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:15px;
+}
+.countdown-head h3{font-size:16px;font-weight:800}
+.timer{display:flex;gap:7px;direction:ltr}
+.timer span{
+  background:#252a35;
+  color:white;
+  border-radius:6px;
+  padding:6px 9px;
+  font-size:12px;
+  font-weight:800;
+}
+
+/* NEWSLETTER */
+.newsletter{
+  background:#fff;
+  border-radius:12px;
+  padding:30px;
+  text-align:center;
+  margin:30px auto;
+}
+.newsletter h2{font-size:19px;font-weight:900}
+.newsletter p{font-size:12px;color:var(--muted);margin:8px}
+.newsletter-form{
+  max-width:430px;
+  margin:18px auto 0;
+  display:flex;
+  gap:8px;
+}
+.newsletter-form input{
+  flex:1;
+  min-width:0;
+  padding:12px;
+  border:1px solid #ddd;
+  border-radius:8px;
+  outline:none;
+  font-size:12px;
+}
+.newsletter-form button{
+  background:var(--red);
+  color:white;
+  border:0;
+  padding:0 20px;
+  border-radius:8px;
+  font-size:12px;
+  font-weight:700;
+}
+
+/* FOOTER */
+.footer{
+  background:white;
+  margin-top:30px;
+  padding:35px 0 20px;
+}
+.footer-top{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:30px;
+  padding-bottom:30px;
+  border-bottom:1px solid var(--border);
+}
+.footer h3{font-size:14px;margin-bottom:15px}
+.footer p,.footer a{font-size:11px;color:#777;line-height:2.5}
+.footer-links{display:flex;flex-direction:column}
+.footer-links a:hover{color:var(--red)}
+.footer-bottom{
+  text-align:center;
+  color:#999;
+  font-size:10px;
+  padding-top:20px;
+}
+
+/* CART DRAWER */
+.overlay{
+  position:fixed;
+  inset:0;
+  background:#0007;
+  z-index:2000;
+  opacity:0;
+  visibility:hidden;
+  transition:.3s;
+}
+.overlay.open{opacity:1;visibility:visible}
+.cart-drawer{
+  position:fixed;
+  z-index:2001;
+  top:0;bottom:0;
+  left:-430px;
+  width:min(420px,90%);
+  background:white;
+  transition:.35s ease;
+  display:flex;
+  flex-direction:column;
+  box-shadow:0 0 30px #0002;
+}
+.cart-drawer.open{left:0}
+.cart-head{
+  padding:22px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid var(--border);
+}
+.cart-head h3{font-size:16px}
+.close-cart{
+  background:#f5f5f5;border:0;
+  border-radius:7px;width:33px;height:33px;font-size:20px;
+}
+.cart-items{flex:1;overflow:auto;padding:15px}
+.empty-cart{text-align:center;padding:80px 15px;color:#999}
+.empty-cart div{font-size:60px}
+.empty-cart p{font-size:13px;margin-top:10px}
+.cart-item{
+  display:flex;align-items:center;gap:12px;
+  border-bottom:1px solid var(--border);
+  padding:13px 0;
+}
+.cart-item-emoji{
+  width:65px;height:65px;background:#f8f8f8;
+  display:grid;place-items:center;
+  font-size:34px;border-radius:9px;
+}
+.cart-item-info{flex:1}
+.cart-item-info strong{font-size:12px;display:block}
+.cart-item-info small{font-size:11px;color:var(--red)}
+.quantity{display:flex;align-items:center;gap:9px;margin-top:8px}
+.quantity button{
+  border:1px solid #ddd;background:white;
+  width:24px;height:24px;border-radius:5px;
+}
+.cart-footer{
+  padding:20px;
+  border-top:1px solid var(--border);
+}
+.total-row{display:flex;justify-content:space-between;font-size:14px;font-weight:800}
+.checkout{
+  width:100%;background:var(--red);color:white;
+  border:0;padding:14px;border-radius:9px;
+  margin-top:17px;font-weight:800;
+}
+.checkout:hover{background:var(--red-dark)}
+
+/* TOAST */
+.toast{
+  position:fixed;
+  bottom:25px;
+  right:50%;
+  transform:translate(50%,100px);
+  background:#242a35;
+  color:white;
+  padding:12px 22px;
+  border-radius:9px;
+  font-size:12px;
+  z-index:3000;
+  opacity:0;
+  transition:.35s;
+}
+.toast.show{transform:translate(50%,0);opacity:1}
+
+/* MOBILE BOTTOM NAV */
+.mobile-nav{display:none}
+
+@media(max-width:1000px){
+  .product-grid{grid-template-columns:repeat(4,1fr)}
+  .category-cards{grid-template-columns:repeat(3,1fr)}
+  .header-main{gap:14px}
+  .logo{font-size:23px}
+}
+@media(max-width:700px){
+  body{padding-bottom:65px}
+  .container{width:94%}
+  .header-main{
+    height:65px;
+    gap:10px;
+  }
+  .logo{font-size:21px}
+  .logo-icon{font-size:26px}
+  .search-box{display:none}
+  .header-actions{gap:7px}
+  .header-btn{padding:8px;font-size:17px;border:0}
+  .header-btn .btn-text{display:none}
+  .mobile-search{
+    display:flex;
+    height:42px;
+    margin-bottom:12px;
+  }
+  .category-inner{height:42px;gap:22px}
+  .category-link{font-size:11px}
+  .hero-section{padding-top:12px}
+  .hero{height:245px;border-radius:11px}
+  .slide{padding:25px 7%}
+  .slide h1{font-size:23px}
+  .slide p{font-size:11px;max-width:240px}
+  .slide-art{font-size:95px;left:4%;opacity:.85}
+  .slide-btn{font-size:11px;padding:9px 16px;margin-top:15px}
+  .benefits{
+    grid-template-columns:repeat(2,1fr);
+    row-gap:20px;padding:17px 5px;
+  }
+  .benefit{justify-content:flex-start;padding-right:13px}
+  .benefit:nth-child(2){border:0}
+  .benefit strong{font-size:10px}
+  .benefit small{font-size:9px}
+  .benefit-icon{font-size:21px}
+  .section{margin:22px auto}
+  .section-title{font-size:15px}
+  .category-cards{grid-template-columns:repeat(3,1fr);gap:9px}
+  .category-card{padding:14px 5px}
+  .category-emoji{font-size:32px}
+  .category-card strong{font-size:10px}
+  .promo-banner{padding:19px 15px}
+  .promo-banner h2{font-size:15px}
+  .promo-banner p{font-size:10px}
+  .promo-banner .promo-emoji{font-size:48px}
+  .promo-banner button{font-size:10px;padding:9px 13px}
+  .product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .product-image{height:145px;font-size:75px}
+  .product-card{padding:9px}
+  .product-title{font-size:11px}
+  .price{font-size:12px}
+  .countdown-section{padding:15px}
+  .countdown-head h3{font-size:13px}
+  .newsletter{padding:23px 13px}
+  .newsletter h2{font-size:16px}
+  .footer-top{grid-template-columns:1fr 1fr;gap:20px}
+  .footer-top>div:first-child{grid-column:1/-1}
+  .mobile-nav{
+    position:fixed;
+    bottom:0;right:0;left:0;
+    height:63px;
+    background:white;
+    box-shadow:0 -3px 15px #00000012;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    z-index:1500;
+  }
+  .mobile-nav a,.mobile-nav button{
+    display:flex;flex-direction:column;
+    align-items:center;gap:3px;
+    color:#777;background:transparent;
+    border:0;font-size:19px;
+  }
+  .mobile-nav small{font-size:9px}
+  .mobile-nav .active{color:var(--red)}
+}
+@media(min-width:701px){
+  .mobile-search{display:none}
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="container header-main">
+    <a href="#" class="logo">
+      <span class="logo-icon">🎁</span>
+      گیفتینو
+    </a>
+
+    <div class="search-box">
+      <span>⌕</span>
+      <input id="searchInput" type="search" placeholder="جستجو در میان هزاران هدیه خاص...">
+    </div>
+
+    <div class="header-actions">
+      <button class="header-btn" onclick="showToast('بخش ورود به حساب کاربری')">
+        <span>♙</span><span class="btn-text">ورود | ثبت‌نام</span>
+      </button>
+      <button class="header-btn cart-button" onclick="openCart()">
+        <span>🛒</span>
+        <span class="btn-text">سبد خرید</span>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </div>
+  <div class="container mobile-search">
+    <div class="search-box" style="display:flex;width:100%;max-width:none">
+      <span>⌕</span>
+      <input id="mobileSearch" type="search" placeholder="جستجوی هدیه مورد نظر...">
+    </div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav class="category-nav">
+  <div class="container category-inner">
+    <a href="#categories" class="category-link">☰ دسته‌بندی کالاها</a>
+    <a href="#products" class="category-link">پرفروش‌ترین‌ها</a>
+    <a href="#special" class="category-link">پیشنهاد شگفت‌انگیز</a>
+    <a href="#products" class="category-link">هدیه تولد</a>
+    <a href="#products" class="category-link">هدیه عاشقانه</a>
+    <a href="#products" class="category-link">هدیه دوستان</a>
+    <a href="#products" class="category-link">هدیه سازمانی</a>
+    <a href="#footer" class="category-link">درباره ما</a>
+  </div>
+</nav>
+
+<main class="container">
+
+<!-- HERO SLIDER -->
+<section class="hero-section">
+  <div class="hero">
+    <div class="slide active">
+      <div class="slide-content">
+        <span class="slide-label">✨ پیشنهاد ویژه گیفتینو</span>
+        <h1>هدیه‌ای خاص<br>برای آدم‌های خاص!</h1>
+        <p>با یک هدیه کوچک، یک خاطره بزرگ بساز.</p>
+        <button class="slide-btn" onclick="scrollToProducts()">مشاهده محصولات ←</button>
+      </div>
+      <div class="slide-art">🎁</div>
+    </div>
+
+    <div class="slide">
+      <div class="slide-content">
+        <span class="slide-label">💝 کالکشن عاشقانه</span>
+        <h1>عشق را<br>هدیه بده!</h1>
+        <p>زیباترین سورپرایزها برای عزیزترین آدم‌ها.</p>
+        <button class="slide-btn" onclick="filterCategory('عاشقانه')">خرید هدیه عاشقانه ←</button>
+      </div>
+      <div class="slide-art">💐</div>
+    </div>
+
+    <div class="slide">
+      <div class="slide-content">
+        <span class="slide-label">🔥 تخفیف‌های استثنایی</span>
+        <h1>لحظه‌ها را<br>با تخفیف جشن بگیر!</h1>
+        <p>محصولات منتخب با قیمت‌هایی دوست‌داشتنی.</p>
+        <button class="slide-btn" onclick="scrollToProducts()">خرید با تخفیف ←</button>
+      </div>
+      <div class="slide-art">🎀</div>
+    </div>
+
+    <div class="slider-dots">
+      <button class="dot active" onclick="goSlide(0)"></button>
+      <button class="dot" onclick="goSlide(1)"></button>
+      <button class="dot" onclick="goSlide(2)"></button>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits">
+  <div class="benefit">
+    <span class="benefit-icon">🚚</span>
+    <div><strong>ارسال سریع</strong><small>به سراسر کشور</small></div>
+  </div>
+  <div class="benefit">
+    <span class="benefit-icon">💎</span>
+    <div><strong>تضمین کیفیت</strong><small>بهترین محصولات</small></div>
+  </div>
+  <div class="benefit">
+    <span class="benefit-icon">🎁</span>
+    <div><strong>بسته‌بندی خاص</strong><small>آماده هدیه دادن</small></div>
+  </div>
+  <div class="benefit">
+    <span class="benefit-icon">💳</span>
+    <div><strong>پرداخت امن</strong><small>خرید آسان و مطمئن</small></div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="section" id="categories">
+  <div class="section-heading">
+    <h2 class="section-title">دسته‌بندی هدایا</h2>
+    <a href="#products" class="see-all">مشاهده همه ←</a>
+  </div>
+
+  <div class="category-cards">
+    <div class="category-card" onclick="filterCategory('تولد')">
+      <span class="category-emoji">🎂</span>
+      <strong>هدیه تولد</strong>
+    </div>
+    <div class="category-card" onclick="filterCategory('عاشقانه')">
+      <span class="category-emoji">❤️</span>
+      <strong>هدیه عاشقانه</strong>
+    </div>
+    <div class="category-card" onclick="filterCategory('دکوری')">
+      <span class="category-emoji">🏡</span>
+      <strong>دکوری و فانتزی</strong>
+    </div>
+    <div class="category-card" onclick="filterCategory('اکسسوری')">
+      <span class="category-emoji">💍</span>
+      <strong>اکسسوری</strong>
+    </div>
+    <div class="category-card" onclick="filterCategory('شخصی')">
+      <span class="category-emoji">✨</span>
+      <strong>هدیه شخصی</strong>
+    </div>
+    <div class="category-card" onclick="filterCategory('خاص')">
+      <span class="category-emoji">🎀</span>
+      <strong>هدایای خاص</strong>
+    </div>
+  </div>
+</section>
+
+<!-- PROMO -->
+<section class="promo-banner" id="special">
+  <div>
+    <h2>شگفت‌انگیزترین هدایا با قیمت استثنایی!</h2>
+    <p>فرصت را از دست نده؛ سورپرایزهای جذاب منتظر تو هستند.</p>
+    <button onclick="scrollToProducts()">مشاهده تخفیف‌ها ←</button>
+  </div>
+  <div class="promo-emoji">🎊</div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="section" id="products">
+  <div class="section-heading">
+    <h2 class="section-title" id="productHeading">محبوب‌ترین هدایا</h2>
+    <a href="#" class="see-all" onclick="resetProducts();return false">مشاهده همه ←</a>
+  </div>
+  <div class="product-grid" id="productGrid"></div>
+</section>
+
+<!-- COUNTDOWN -->
+<section class="countdown-section">
+  <div class="countdown-head">
+    <h3>🔥 فرصت طلایی خرید</h3>
+    <div class="timer">
+      <span id="seconds">00</span>
+      <span id="minutes">00</span>
+      <span id="hours">00</span>
+    </div>
+  </div>
+  <div class="product-grid" id="discountGrid"></div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <h2>💌 از تخفیف‌ها جا نمونی!</h2>
+  <p>ایمیلت رو ثبت کن تا اولین نفری باشی که از پیشنهادهای ویژه باخبر می‌شه.</p>
+  <form class="newsletter-form" onsubmit="subscribe(event)">
+    <input type="email" placeholder="ایمیل شما..." required>
+    <button type="submit">عضویت</button>
+  </form>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer" id="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <a href="#" class="logo" style="color:#e6123d">🎁 گیفتینو</a>
+        <p style="margin-top:15px;max-width:330px">
+          گیفتینو، جایی برای پیدا کردن خاص‌ترین هدایا.
+          ما باور داریم هر هدیه، شروع یک لبخند است.
+          با ما لحظه‌های زیباتری بسازید.
+        </p>
+      </div>
+      <div>
+        <h3>راهنمای خرید</h3>
+        <div class="footer-links">
+          <a href="#">نحوه ثبت سفارش</a>
+          <a href="#">روش‌های پرداخت</a>
+          <a href="#">رویه ارسال</a>
+          <a href="#">پیگیری سفارش</a>
+        </div>
+      </div>
+      <div>
+        <h3>خدمات مشتریان</h3>
+        <div class="footer-links">
+          <a href="#">تماس با ما</a>
+          <a href="#">سوالات متداول</a>
+          <a href="#">شرایط بازگشت</a>
+          <a href="#">حریم خصوصی</a>
+        </div>
+      </div>
+      <div>
+        <h3>ارتباط با ما</h3>
+        <div class="footer-links">
+          <a href="#">📞 ۰۲۱-۱۲۳۴۵۶۷۸</a>
+          <a href="#">✉️ hello@giftino.com</a>
+          <a href="#">📍 تهران، ایران</a>
+          <a href="#">📷 اینستاگرام</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © تمامی حقوق این وب‌سایت متعلق به گیفتینو است.
+    </div>
+  </div>
+</footer>
+
+<!-- CART -->
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
+<aside class="cart-drawer" id="cartDrawer">
+  <div class="cart-head">
+    <h3>🛒 سبد خرید شما</h3>
+    <button class="close-cart" onclick="closeCart()">×</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-footer">
+    <div class="total-row">
+      <span>مبلغ قابل پرداخت</span>
+      <span id="cartTotal">۰ تومان</span>
+    </div>
+    <button class="checkout" onclick="checkout()">ادامه فرآیند خرید</button>
+  </div>
+</aside>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-nav">
+  <a href="#" class="active"><span>⌂</span><small>خانه</small></a>
+  <a href="#categories"><span>▦</span><small>دسته‌بندی</small></a>
+  <button onclick="openCart()"><span>🛒</span><small>سبد خرید</small></button>
+  <a href="#products"><span>♡</span><small>علاقه‌مندی</small></a>
+  <a href="#footer"><span>♙</span><small>حساب من</small></a>
+</nav>
+
+<script>
+const products = [
+  {id:1,name:'باکس هدیه لاکچری سورپرایزی',emoji:'🎁',price:850000,old:1100000,discount:23,rating:4.9,category:'خاص'},
+  {id:2,name:'عروسک خرسی پولیشی دوست‌داشتنی',emoji:'🧸',price:390000,old:490000,discount:20,rating:4.8,category:'تولد'},
+  {id:3,name:'باکس گل رز جاودان عاشقانه',emoji:'🌹',price:690000,old:850000,discount:19,rating:4.9,category:'عاشقانه'},
+  {id:4,name:'ماگ فانتزی سرامیکی خاص',emoji:'☕',price:220000,old:280000,discount:21,rating:4.7,category:'دکوری'},
+  {id:5,name:'گردنبند مینیمال قلبی',emoji:'💝',price:480000,old:620000,discount:23,rating:4.8,category:'اکسسوری'},
+  {id:6,name:'چراغ خواب طرح ماه و ستاره',emoji:'🌙',price:560000,old:700000,discount:20,rating:4.9,category:'دکوری'},
+  {id:7,name:'پک سورپرایز تولد رنگی',emoji:'🎈',price:310000,old:400000,discount:22,rating:4.6,category:'تولد'},
+  {id:8,name:'جعبه موزیکال عاشقانه',emoji:'🎶',price:750000,old:950000,discount:21,rating:4.9,category:'عاشقانه'},
+  {id:9,name:'دستبند ظریف فانتزی',emoji:'📿',price:290000,old:360000,discount:19,rating:4.7,category:'اکسسوری'},
+  {id:10,name:'پک هدیه دخترانه صورتی',emoji:'🎀',price:590000,old:750000,discount:21,rating:4.8,category:'خاص'}
+];
+
+let cart = [];
+let activeSlide = 0;
+let slideInterval;
+let toastTimeout;
+
+const formatPrice = n => n.toLocaleString('fa-IR');
+const formatCurrency = n => formatPrice(n)+' تومان';
+
+function productCard(p){
+  return `
+    <article class="product-card">
+      <div class="product-image">
+        <span>${p.emoji}</span>
+        <span class="discount">${formatPrice(p.discount)}٪</span>
+        <button class="favorite" onclick="toggleFavorite(this)">♡</button>
+      </div>
+      <div class="product-title">${p.name}</div>
+      <div class="rating">★★★★★ <span>${p.rating}</span></div>
+      <div class="price-area">
+        <div class="old-price">${formatPrice(p.old)} تومان</div>
+        <div class="price-row">
+          <div class="price">${formatPrice(p.price)} <span class="currency">تومان</span></div>
+          <button class="add-cart" onclick="addToCart(${p.id})">+</button>
+        </div>
+      </div>
+      <div class="stock">● موجود در انبار</div>
+    </article>
+  `;
+}
+
+function renderProducts(list=products){
+  document.getElementById('productGrid').innerHTML =
+    list.length ? list.map(productCard).join('') :
+    '<p style="grid-column:1/-1;text-align:center;padding:40px">محصولی پیدا نشد.</p>';
+}
+
+function renderDiscounts(){
+  document.getElementById('discountGrid').innerHTML =
+    products.slice(0,5).map(productCard).join('');
+}
+
+function addToCart(id){
+  const p=products.find(x=>x.id===id);
+  const item=cart.find(x=>x.id===id);
+  if(item)item.qty++;
+  else cart.push({...p,qty:1});
+  updateCart();
+  showToast('🎁 '+p.name+' به سبد خرید اضافه شد');
+}
+
+function updateCart(){
+  const count=cart.reduce((s,p)=>s+p.qty,0);
+  const total=cart.reduce((s,p)=>s+p.price*p.qty,0);
+
+  document.getElementById('cartCount').textContent=formatPrice(count);
+  document.getElementById('cartTotal').textContent=formatCurrency(total);
+
+  const el=document.getElementById('cartItems');
+
+  if(!cart.length){
+    el.innerHTML='<div class="empty-cart"><div>🛒</div><p>سبد خرید شما هنوز خالی است!</p></div>';
+    return;
+  }
+
+  el.innerHTML=cart.map(p=>`
+    <div class="cart-item">
+      <div class="cart-item-emoji">${p.emoji}</div>
+      <div class="cart-item-info">
+        <strong>${p.name}</strong>
+        <small>${formatCurrency(p.price)}</small>
+        <div class="quantity">
+          <button onclick="changeQty(${p.id},1)">+</button>
+          <span>${formatPrice(p.qty)}</span>
+          <button onclick="changeQty(${p.id},-1)">−</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function changeQty(id,delta){
+  const item=cart.find(p=>p.id===id);
+  if(!item)return;
+  item.qty+=delta;
+  if(item.qty<=0)cart=cart.filter(p=>p.id!==id);
+  updateCart();
+}
+
+function openCart(){
+  document.getElementById('cartDrawer').classList.add('open');
+  document.getElementById('overlay').classList.add('open');
+}
+function closeCart(){
+  document.getElementById('cartDrawer').classList.remove('open');
+  document.getElementById('overlay').classList.remove('open');
+}
+
+function checkout(){
+  if(!cart.length){
+    showToast('سبد خرید شما خالی است!');
+    return;
+  }
+  showToast('این نسخه نمایشی است؛ درگاه پرداخت متصل نشده است.');
+}
+
+function toggleFavorite(btn){
+  btn.classList.toggle('active');
+  btn.textContent=btn.classList.contains('active')?'♥':'♡';
+}
+
+function showToast(msg){
+  const el=document.getElementById('toast');
+  el.textContent=msg;
+  el.classList.add('show');
+  clearTimeout(toastTimeout);
+  toastTimeout=setTimeout(()=>el.classList.remove('show'),2600);
+}
+
+function filterCategory(category){
+  const result=products.filter(p=>p.category===category);
+  document.getElementById('productHeading').textContent='هدایای '+category;
+  renderProducts(result);
+  document.getElementById('products').scrollIntoView({behavior:'smooth'});
+}
+
+function resetProducts(){
+  document.getElementById('productHeading').textContent='محبوب‌ترین هدایا';
+  renderProducts();
+}
+
+function scrollToProducts(){
+  document.getElementById('products').scrollIntoView({behavior:'smooth'});
+}
+
+function searchProducts(value){
+  const q=value.trim().toLowerCase();
+  const result=products.filter(p=>
+    p.name.toLowerCase().includes(q) ||
+    p.category.toLowerCase().includes(q)
+  );
+  document.getElementById('productHeading').textContent=
+    q?'نتایج جستجو':'محبوب‌ترین هدایا';
+  renderProducts(q?result:products);
+  if(q)scrollToProducts();
+}
+
+document.getElementById('searchInput').addEventListener('input',e=>{
+  searchProducts(e.target.value);
+});
+document.getElementById('mobileSearch').addEventListener('input',e=>{
+  searchProducts(e.target.value);
+});
+
+function goSlide(index){
+  const slides=document.querySelectorAll('.slide');
+  const dots=document.querySelectorAll('.dot');
+  slides[activeSlide].classList.remove('active');
+  dots[activeSlide].classList.remove('active');
+  activeSlide=index;
+  slides[activeSlide].classList.add('active');
+  dots[activeSlide].classList.add('active');
+}
+
+function startSlider(){
+  clearInterval(slideInterval);
+  slideInterval=setInterval(()=>{
+    goSlide((activeSlide+1)%3);
+  },5000);
+}
+startSlider();
+
+function subscribe(e){
+  e.preventDefault();
+  showToast('💌 درخواست عضویت شما ثبت شد!');
+  e.target.reset();
+}
+
+// Countdown demo
+let remaining=5*60*60+35*60+48;
+function updateTimer(){
+  if(remaining<=0)remaining=5*60*60+35*60+48;
+  const h=Math.floor(remaining/3600);
+  const m=Math.floor((remaining%3600)/60);
+  const s=remaining%60;
+  document.getElementById('hours').textContent=String(h).padStart(2,'0');
+  document.getElementById('minutes').textContent=String(m).padStart(2,'0');
+  document.getElementById('seconds').textContent=String(s).padStart(2,'0');
+  remaining--;
+}
+setInterval(updateTimer,1000);
+updateTimer();
+
+renderProducts();
+renderDiscounts();
+updateCart();
+</script>
+
+</body>
+</html>
