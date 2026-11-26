@@ -1,0 +1,1703 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#e6123d">
+  <meta name="description" content="گیفتینو؛ فروشگاه آنلاین هدیه، اکسسوری و محصولات خاص با بهترین قیمت و ارسال سریع">
+  <title>گیفتینو | دنیای هدیه‌های خاص</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --red: #e6123d;
+      --red-dark: #c80e34;
+      --dark: #252525;
+      --muted: #81858b;
+      --border: #eceef1;
+      --bg: #f5f6f8;
+      --white: #fff;
+      --green: #00a76f;
+      --radius: 14px;
+      --shadow: 0 4px 20px rgba(0,0,0,.045);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 130px; }
+
+    body {
+      font-family: 'Vazirmatn', sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+
+    button, input { font-family: inherit; }
+    button { cursor: pointer; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(1360px, 94%);
+      margin: auto;
+    }
+
+    .announcement {
+      background: #b90d30;
+      color: white;
+      height: 34px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      font-size: 12px;
+    }
+
+    .announcement-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 28s linear infinite;
+      gap: 80px;
+      white-space: nowrap;
+    }
+
+    .announcement-track span { padding-left: 30px; }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(50%); }
+    }
+
+    .main-header {
+      background: var(--red);
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 3px 12px rgba(0,0,0,.1);
+    }
+
+    .header-main {
+      height: 82px;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 175px;
+    }
+
+    .logo-icon {
+      width: 45px;
+      height: 45px;
+      border-radius: 14px;
+      background: white;
+      color: var(--red);
+      display: grid;
+      place-items: center;
+      font-size: 26px;
+      transform: rotate(-5deg);
+    }
+
+    .logo-name {
+      font-size: 27px;
+      font-weight: 900;
+      letter-spacing: -.8px;
+    }
+
+    .logo-sub {
+      display: block;
+      font-size: 10px;
+      font-weight: 400;
+      opacity: .8;
+      margin-top: -5px;
+    }
+
+    .search-box {
+      flex: 1;
+      max-width: 700px;
+      height: 48px;
+      background: #fff;
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      padding: 0 15px;
+      color: #888;
+      position: relative;
+    }
+
+    .search-box svg { flex-shrink: 0; }
+
+    .search-box input {
+      width: 100%;
+      border: 0;
+      outline: 0;
+      font-size: 13px;
+      padding: 0 12px;
+      background: transparent;
+      color: #333;
+    }
+
+    .search-box input::placeholder { color: #999; }
+
+    .search-results {
+      display: none;
+      position: absolute;
+      top: 56px;
+      right: 0;
+      width: 100%;
+      background: white;
+      color: #333;
+      border-radius: 10px;
+      padding: 14px;
+      box-shadow: 0 10px 30px #0002;
+      z-index: 120;
+    }
+
+    .search-results.active { display: block; }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      margin-right: auto;
+    }
+
+    .header-action {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      color: white;
+      font-size: 12px;
+      background: transparent;
+      border: 0;
+      white-space: nowrap;
+    }
+
+    .header-action svg { width: 22px; height: 22px; }
+
+    .cart-btn {
+      border: 1px solid rgba(255,255,255,.5);
+      padding: 10px 13px;
+      border-radius: 9px;
+      position: relative;
+    }
+
+    .cart-count {
+      background: white;
+      color: var(--red);
+      border-radius: 50%;
+      min-width: 17px;
+      height: 17px;
+      display: grid;
+      place-items: center;
+      font-size: 10px;
+      font-weight: bold;
+    }
+
+    .category-nav {
+      background: white;
+      color: #555;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      gap: 29px;
+      height: 48px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .nav-inner::-webkit-scrollbar { display: none; }
+
+    .nav-link {
+      font-size: 12px;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      transition: color .2s;
+    }
+
+    .nav-link:hover { color: var(--red); }
+
+    .nav-link svg { width: 18px; height: 18px; }
+
+    .nav-link.special {
+      color: var(--red);
+      font-weight: 700;
+    }
+
+    .hero {
+      margin-top: 20px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 18px;
+      background: #eee;
+      height: clamp(250px, 35vw, 440px);
+      box-shadow: var(--shadow);
+    }
+
+    .slides {
+      height: 100%;
+      position: relative;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity .7s ease;
+      display: flex;
+      align-items: center;
+      padding: 6%;
+      overflow: hidden;
+    }
+
+    .slide.active { opacity: 1; z-index: 1; }
+
+    .slide::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(0,0,0,.02), rgba(0,0,0,.5));
+      z-index: 0;
+    }
+
+    .slide:nth-child(1) {
+      background: linear-gradient(115deg,#f6b8c8,#fce8ec 55%,#d94d76);
+    }
+
+    .slide:nth-child(2) {
+      background: linear-gradient(120deg,#d8c3fa,#f4eafa 55%,#8660bd);
+    }
+
+    .slide:nth-child(3) {
+      background: linear-gradient(120deg,#f4d8a7,#fff0d6 55%,#d48b35);
+    }
+
+    .slide-content {
+      position: relative;
+      z-index: 2;
+      max-width: 520px;
+      color: #38212b;
+    }
+
+    .slide:nth-child(2) .slide-content { color: #33204d; }
+    .slide:nth-child(3) .slide-content { color: #51320f; }
+
+    .slide-tag {
+      background: rgba(255,255,255,.75);
+      padding: 7px 13px;
+      border-radius: 30px;
+      font-size: 11px;
+      display: inline-block;
+      margin-bottom: 17px;
+    }
+
+    .slide h1 {
+      font-size: clamp(26px,4vw,51px);
+      line-height: 1.6;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+    .slide p {
+      font-size: 14px;
+      margin-bottom: 23px;
+    }
+
+    .primary-btn {
+      background: var(--red);
+      color: white;
+      border: 0;
+      border-radius: 8px;
+      padding: 12px 24px;
+      font-size: 12px;
+      font-weight: 700;
+      transition: .2s;
+    }
+
+    .primary-btn:hover {
+      background: var(--red-dark);
+      transform: translateY(-2px);
+    }
+
+    .slide-art {
+      position: absolute;
+      left: 7%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 34%;
+      height: 85%;
+      display: grid;
+      place-items: center;
+      font-size: clamp(100px,18vw,220px);
+      filter: drop-shadow(0 15px 12px #0002);
+      animation: float 4s ease-in-out infinite;
+      z-index: 1;
+    }
+
+    @keyframes float {
+      0%,100% { transform: translateY(-50%); }
+      50% { transform: translateY(calc(-50% - 12px)); }
+    }
+
+    .slider-controls {
+      position: absolute;
+      bottom: 18px;
+      right: 25px;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .slider-controls button {
+      border: 0;
+      width: 34px;
+      height: 34px;
+      background: white;
+      border-radius: 50%;
+      font-size: 19px;
+      color: #555;
+    }
+
+    .dots { display: flex; gap: 5px; }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      background: #ffffff88;
+      border-radius: 10px;
+      transition: .3s;
+    }
+
+    .dot.active { width: 23px; background: var(--red); }
+
+    .quick-features {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 15px;
+      padding: 25px 0;
+    }
+
+    .feature {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .feature-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: #fff0f3;
+      color: var(--red);
+      flex-shrink: 0;
+    }
+
+    .feature-icon svg { width: 23px; height: 23px; }
+    .feature strong { display: block; font-size: 12px; }
+    .feature small { font-size: 10px; color: var(--muted); }
+
+    .section {
+      margin: 22px auto;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 17px;
+    }
+
+    .section-title {
+      font-size: 19px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title::before {
+      content: "";
+      width: 4px;
+      height: 25px;
+      border-radius: 5px;
+      background: var(--red);
+    }
+
+    .view-all {
+      color: var(--red);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(7,1fr);
+      gap: 20px;
+      background: white;
+      border-radius: var(--radius);
+      padding: 25px 15px;
+      box-shadow: var(--shadow);
+    }
+
+    .category-item {
+      text-align: center;
+      cursor: pointer;
+      transition: transform .3s;
+    }
+
+    .category-item:hover { transform: translateY(-6px); }
+
+    .category-circle {
+      width: clamp(65px,9vw,105px);
+      height: clamp(65px,9vw,105px);
+      border-radius: 50%;
+      margin: auto auto 10px;
+      display: grid;
+      place-items: center;
+      font-size: clamp(28px,4vw,45px);
+      background: #fff0f3;
+      border: 3px solid #ffe1e8;
+    }
+
+    .category-item:nth-child(2) .category-circle { background:#f1eaff;border-color:#e6d9ff; }
+    .category-item:nth-child(3) .category-circle { background:#e7f5ff;border-color:#d7edff; }
+    .category-item:nth-child(4) .category-circle { background:#fff5dc;border-color:#ffebbd; }
+    .category-item:nth-child(5) .category-circle { background:#e7f8ee;border-color:#d3f1de; }
+    .category-item:nth-child(6) .category-circle { background:#fff0e7;border-color:#ffe2d1; }
+    .category-item:nth-child(7) .category-circle { background:#f5eaff;border-color:#ead9ff; }
+
+    .category-item span { font-size: 11px; font-weight: 600; }
+
+    .amazing {
+      background: linear-gradient(135deg,#e6123d,#a50c2e);
+      border-radius: 17px;
+      padding: 22px;
+      color: white;
+      overflow: hidden;
+    }
+
+    .amazing-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .amazing-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 21px;
+      font-weight: 900;
+    }
+
+    .amazing-title span { font-size: 27px; }
+
+    .countdown {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+    }
+
+    .time-box {
+      background: white;
+      color: var(--red);
+      min-width: 37px;
+      height: 37px;
+      border-radius: 7px;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 15px;
+    }
+
+    .amazing-grid {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 13px;
+    }
+
+    .product-card {
+      background: white;
+      color: #333;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      transition: .3s;
+      border: 1px solid #eee;
+      min-width: 0;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px #0002;
+    }
+
+    .product-image {
+      height: 180px;
+      background: #f7f7f8;
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 14px;
+      transition: transform .4s;
+    }
+
+    .product-card:hover .product-image img { transform: scale(1.07); }
+
+    .product-emoji {
+      font-size: 75px;
+      filter: drop-shadow(0 10px 7px #0002);
+    }
+
+    .discount {
+      position: absolute;
+      top: 11px;
+      right: 11px;
+      background: var(--red);
+      color: white;
+      padding: 4px 8px;
+      font-size: 10px;
+      border-radius: 5px;
+      font-weight: bold;
+      z-index: 2;
+    }
+
+    .favorite {
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      border: 0;
+      background: white;
+      border-radius: 50%;
+      width: 31px;
+      height: 31px;
+      color: #aaa;
+      font-size: 19px;
+      z-index: 3;
+    }
+
+    .favorite.active { color: var(--red); }
+
+    .product-info { padding: 12px; }
+
+    .product-name {
+      font-size: 12px;
+      line-height: 2;
+      height: 47px;
+      overflow: hidden;
+      font-weight: 600;
+    }
+
+    .rating {
+      color: #f5a623;
+      font-size: 11px;
+      margin: 5px 0 9px;
+    }
+
+    .rating small { color: #999; }
+
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .price {
+      font-size: 14px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .price small { font-size: 9px; font-weight: 400; }
+
+    .old-price {
+      font-size: 10px;
+      color: #aaa;
+      text-decoration: line-through;
+      margin-top: 3px;
+    }
+
+    .amazing .product-card { height: 100%; }
+
+    .amazing .product-image { height: 145px; }
+
+    .amazing .product-info { padding: 9px; }
+
+    .amazing .product-name { font-size: 11px; }
+
+    .amazing .price { font-size: 12px; }
+
+    .add-cart {
+      width: 100%;
+      border: 1px solid #ffe0e6;
+      background: #fff4f6;
+      color: var(--red);
+      padding: 8px;
+      margin-top: 11px;
+      border-radius: 7px;
+      font-size: 11px;
+      font-weight: 700;
+      transition: .2s;
+    }
+
+    .add-cart:hover {
+      background: var(--red);
+      color: white;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(4,minmax(0,1fr));
+      gap: 15px;
+    }
+
+    .products-grid .product-image { height: 195px; }
+
+    .skeleton {
+      background: linear-gradient(90deg,#f0f0f0 25%,#e6e6e6 50%,#f0f0f0 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.3s infinite;
+      border-radius: 5px;
+    }
+
+    @keyframes shimmer {
+      to { background-position: -200% 0; }
+    }
+
+    .skeleton-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      padding-bottom: 14px;
+    }
+
+    .skeleton-image { height: 190px; border-radius: 0; }
+    .skeleton-line { height: 12px; margin: 14px 12px 0; }
+    .skeleton-line.short { width: 50%; }
+    .skeleton-line.medium { width: 75%; }
+
+    .promo-grid {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 16px;
+      margin: 25px auto;
+    }
+
+    .promo {
+      min-height: 190px;
+      border-radius: 14px;
+      padding: 25px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+
+    .promo:first-child {
+      background: linear-gradient(120deg,#fbe4e9,#ffc7d4);
+    }
+
+    .promo:last-child {
+      background: linear-gradient(120deg,#e4e0ff,#c5b9f4);
+    }
+
+    .promo-content { position: relative; z-index: 2; }
+
+    .promo h3 { font-size: 21px; font-weight: 900; margin-bottom: 7px; }
+    .promo p { font-size: 11px; margin-bottom: 15px; color: #555; }
+
+    .promo .primary-btn { padding: 9px 17px; font-size: 11px; }
+
+    .promo-art {
+      position: absolute;
+      left: 8%;
+      font-size: 100px;
+      opacity: .8;
+      transform: rotate(-12deg);
+    }
+
+    .brands {
+      background: white;
+      padding: 23px;
+      border-radius: var(--radius);
+      display: grid;
+      grid-template-columns: repeat(6,1fr);
+      align-items: center;
+      gap: 15px;
+      box-shadow: var(--shadow);
+    }
+
+    .brand {
+      text-align: center;
+      padding: 15px 5px;
+      font-size: 16px;
+      font-weight: 900;
+      color: #777;
+      filter: grayscale(1);
+      transition: .3s;
+    }
+
+    .brand:hover { filter: grayscale(0); color: var(--red); }
+
+    .newsletter {
+      margin-top: 35px;
+      background: linear-gradient(110deg,#252525,#444);
+      padding: 27px;
+      border-radius: 15px;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .newsletter h3 { font-size: 18px; margin-bottom: 5px; }
+    .newsletter p { font-size: 11px; color: #ccc; }
+
+    .newsletter-form {
+      display: flex;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      height: 44px;
+      width: min(390px,100%);
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      min-width: 0;
+      border: 0;
+      outline: 0;
+      padding: 0 13px;
+      font-size: 12px;
+    }
+
+    .newsletter-form button {
+      border: 0;
+      background: var(--red);
+      color: white;
+      padding: 0 17px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .footer {
+      background: white;
+      margin-top: 30px;
+      padding: 40px 0 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding-bottom: 25px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .footer-logo {
+      font-size: 26px;
+      font-weight: 900;
+      color: var(--red);
+    }
+
+    .back-top {
+      border: 1px solid #ddd;
+      padding: 10px 15px;
+      border-radius: 8px;
+      color: #777;
+      background: white;
+      font-size: 11px;
+    }
+
+    .footer-columns {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr;
+      gap: 25px;
+      padding: 32px 0;
+    }
+
+    .footer-column h4 {
+      font-size: 14px;
+      margin-bottom: 17px;
+    }
+
+    .footer-column p {
+      color: #888;
+      font-size: 11px;
+      line-height: 2.5;
+    }
+
+    .footer-column a {
+      display: block;
+      color: #888;
+      font-size: 11px;
+      margin-bottom: 12px;
+      transition: .2s;
+    }
+
+    .footer-column a:hover { color: var(--red); }
+
+    .trust-box {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      padding: 14px;
+      text-align: center;
+      min-height: 105px;
+    }
+
+    .trust-box span { font-size: 33px; }
+    .trust-box small { font-size: 10px; color: #777; }
+
+    .trust-row { display: flex; gap: 10px; }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+      color: #999;
+      font-size: 10px;
+    }
+
+    .socials { display: flex; gap: 15px; font-size: 17px; }
+
+    .floating-top {
+      position: fixed;
+      bottom: 25px;
+      left: 25px;
+      width: 44px;
+      height: 44px;
+      border: 0;
+      border-radius: 50%;
+      background: var(--red);
+      color: white;
+      font-size: 21px;
+      box-shadow: 0 5px 15px #e6123d55;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(15px);
+      transition: .3s;
+      z-index: 90;
+    }
+
+    .floating-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .mobile-bottom {
+      display: none;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #252525;
+      color: white;
+      padding: 13px 20px;
+      border-radius: 9px;
+      font-size: 12px;
+      z-index: 300;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: .3s;
+      pointer-events: none;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity .7s ease,transform .7s ease;
+    }
+
+    .scroll-reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .empty-products {
+      grid-column: 1/-1;
+      text-align: center;
+      background: white;
+      padding: 35px;
+      border-radius: 12px;
+      color: #888;
+      font-size: 13px;
+    }
+
+    @media(max-width:1000px) {
+      .header-main { gap: 15px; }
+      .logo { min-width: auto; }
+      .logo-name { font-size: 22px; }
+      .header-action span { display: none; }
+      .categories { grid-template-columns: repeat(7,1fr); gap: 8px; }
+      .footer-columns { grid-template-columns: repeat(3,1fr); }
+      .products-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+    }
+
+    @media(max-width:700px) {
+      body { padding-bottom: 65px; }
+      .announcement { height: 30px; font-size: 10px; }
+      .header-main {
+        height: auto;
+        min-height: 105px;
+        flex-wrap: wrap;
+        padding: 12px 0;
+        gap: 10px;
+      }
+
+      .logo { flex: 1; }
+      .logo-icon { width: 37px; height: 37px; font-size: 21px; }
+      .logo-name { font-size: 21px; }
+      .logo-sub { font-size: 9px; }
+      .header-actions { margin-right: 0; gap: 9px; }
+      .header-action svg { width: 20px; height: 20px; }
+      .cart-btn { padding: 8px; }
+      .search-box { order: 3; flex-basis: 100%; max-width: none; height: 42px; }
+      .category-nav { display: none; }
+      .hero { margin-top: 12px; height: 290px; border-radius: 12px; }
+      .slide { padding: 8%; }
+      .slide h1 { font-size: 27px; max-width: 75%; }
+      .slide p { font-size: 11px; max-width: 65%; }
+      .slide-art { font-size: 100px; width: 37%; left: 2%; }
+      .slide-content { max-width: 65%; }
+      .quick-features { grid-template-columns: repeat(2,1fr); gap: 9px; padding: 15px 0; }
+      .feature { padding: 10px; gap: 8px; }
+      .feature-icon { width: 35px; height: 35px; }
+      .feature strong { font-size: 10px; }
+      .feature small { font-size: 9px; }
+      .section { margin: 18px auto; }
+      .section-title { font-size: 16px; }
+      .categories { grid-template-columns: repeat(4,1fr); padding: 17px 8px; gap: 17px 5px; }
+      .category-item span { font-size: 10px; }
+      .category-circle { width: 65px; height: 65px; font-size: 29px; }
+      .amazing { padding: 14px; }
+      .amazing-title { font-size: 16px; }
+      .amazing-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .amazing-grid .product-card:nth-child(n+3) { display: none; }
+      .products-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
+      .products-grid .product-image { height: 145px; }
+      .product-image { height: 145px; }
+      .product-emoji { font-size: 60px; }
+      .product-info { padding: 9px; }
+      .product-name { font-size: 11px; }
+      .price { font-size: 12px; }
+      .promo-grid { grid-template-columns: 1fr; gap: 10px; }
+      .promo { min-height: 155px; padding: 18px; }
+      .promo h3 { font-size: 18px; }
+      .promo-art { font-size: 75px; }
+      .brands { grid-template-columns: repeat(3,1fr); padding: 12px; }
+      .brand { font-size: 13px; }
+      .newsletter { padding: 20px; }
+      .newsletter h3 { font-size: 16px; }
+      .footer { padding: 25px 0 15px; }
+      .footer-columns { grid-template-columns: repeat(2,1fr); gap: 22px 15px; }
+      .footer-column:first-child { grid-column: 1/-1; }
+      .trust-row { justify-content: flex-start; }
+      .trust-box { min-width: 80px; }
+      .footer-bottom { justify-content: center; text-align: center; }
+      .floating-top { bottom: 78px; left: 14px; width: 38px; height: 38px; }
+      .toast { bottom: 75px; right: 12px; left: 12px; text-align: center; }
+      .mobile-bottom {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        height: 62px;
+        background: white;
+        border-top: 1px solid #eee;
+        justify-content: space-around;
+        align-items: center;
+        z-index: 150;
+        box-shadow: 0 -3px 15px #00000008;
+      }
+      .mobile-bottom a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3px;
+        color: #888;
+        font-size: 9px;
+      }
+      .mobile-bottom svg { width: 21px; height: 21px; }
+      .mobile-bottom a.active { color: var(--red); }
+    }
+
+    @media(max-width:380px) {
+      .categories { grid-template-columns: repeat(3,1fr); }
+      .slide h1 { font-size: 23px; }
+      .amazing-header { align-items: flex-start; flex-direction: column; }
+      .footer-columns { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      *,*::before,*::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="announcement">
+    <div class="announcement-track">
+      <span>🎁 با خرید بالای ۱ میلیون تومان ارسال رایگان داری!</span>
+      <span>✨ تخفیف‌های ویژه جشنواره گیفتینو را از دست نده!</span>
+      <span>🚀 ارسال سریع به سراسر ایران</span>
+      <span>💝 هدیه‌ات را همین امروز انتخاب کن</span>
+      <span>🎁 با خرید بالای ۱ میلیون تومان ارسال رایگان داری!</span>
+      <span>✨ تخفیف‌های ویژه جشنواره گیفتینو را از دست نده!</span>
+    </div>
+  </div>
+
+  <header class="main-header">
+    <div class="container header-main">
+      <a href="#" class="logo">
+        <div class="logo-icon">🎁</div>
+        <div>
+          <div class="logo-name">گیفتینو</div>
+          <span class="logo-sub">دنیای هدیه‌های خاص</span>
+        </div>
+      </a>
+
+      <div class="search-box">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="7"></circle>
+          <path d="m16 16 4 4"></path>
+        </svg>
+        <input id="searchInput" type="search" placeholder="جستجو در بین هزاران هدیه جذاب..." autocomplete="off">
+        <div class="search-results" id="searchResults"></div>
+      </div>
+
+      <div class="header-actions">
+        <button class="header-action" onclick="showToast('بخش حساب کاربری به زودی فعال می‌شود')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <circle cx="12" cy="8" r="4"></circle>
+            <path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"></path>
+          </svg>
+          <span>ورود | ثبت‌نام</span>
+        </button>
+        <button class="header-action cart-btn" onclick="showCart()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M3 3h2l2.4 12.5a2 2 0 0 0 2 1.5h8.8a2 2 0 0 0 1.9-1.5L22 8H6"></path>
+            <circle cx="10" cy="21" r="1"></circle>
+            <circle cx="19" cy="21" r="1"></circle>
+          </svg>
+          <span>سبد خرید</span>
+          <b class="cart-count" id="cartCount">۰</b>
+        </button>
+      </div>
+    </div>
+
+    <nav class="category-nav">
+      <div class="container nav-inner">
+        <a href="#categories" class="nav-link special">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 5h16M4 12h16M4 19h16"></path>
+          </svg>
+          دسته‌بندی کالاها
+        </a>
+        <a href="#amazing" class="nav-link">🔥 شگفت‌انگیزها</a>
+        <a href="#products" class="nav-link">پرفروش‌ترین‌ها</a>
+        <a href="#categories" class="nav-link">هدیه تولد</a>
+        <a href="#categories" class="nav-link">اکسسوری</a>
+        <a href="#brands" class="nav-link">برندها</a>
+        <a href="#footer" class="nav-link">تماس با ما</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <section class="hero scroll-reveal">
+      <div class="slides" id="slides">
+        <div class="slide active">
+          <div class="slide-content">
+            <span class="slide-tag">جشنواره بزرگ گیفتینو</span>
+            <h1>یک دنیا عشق<br>در یک جعبه هدیه!</h1>
+            <p>خاص‌ترین هدیه‌ها برای خاص‌ترین آدم‌های زندگی‌ات</p>
+            <button class="primary-btn" onclick="scrollToSection('products')">مشاهده محصولات ←</button>
+          </div>
+          <div class="slide-art">🎁</div>
+        </div>
+
+        <div class="slide">
+          <div class="slide-content">
+            <span class="slide-tag">پیشنهاد ویژه امروز</span>
+            <h1>هدیه‌هایی<br>به رنگ خوشحالی</h1>
+            <p>با انتخابی متفاوت، لبخند را هدیه بده</p>
+            <button class="primary-btn" onclick="scrollToSection('amazing')">خرید با تخفیف ←</button>
+          </div>
+          <div class="slide-art">💝</div>
+        </div>
+
+        <div class="slide">
+          <div class="slide-content">
+            <span class="slide-tag">جدیدترین محصولات</span>
+            <h1>لحظه‌ها را<br>ماندگار کن!</h1>
+            <p>کالکشن جدید اکسسوری و هدیه‌های خاص</p>
+            <button class="primary-btn" onclick="scrollToSection('categories')">کشف محصولات ←</button>
+          </div>
+          <div class="slide-art">✨</div>
+        </div>
+      </div>
+
+      <div class="slider-controls">
+        <button onclick="changeSlide(-1)" aria-label="اسلاید قبلی">›</button>
+        <div class="dots" id="sliderDots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+        <button onclick="changeSlide(1)" aria-label="اسلاید بعدی">‹</button>
+      </div>
+    </section>
+
+    <section class="quick-features scroll-reveal">
+      <div class="feature">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M3 7h12v11H3zM15 11h4l3 3v4h-7"></path>
+            <circle cx="7" cy="19" r="2"></circle>
+            <circle cx="18" cy="19" r="2"></circle>
+          </svg>
+        </div>
+        <div><strong>ارسال سریع</strong><small>تحویل به موقع سفارش‌ها</small></div>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11z"></path>
+            <path d="m9 12 2 2 4-4"></path>
+          </svg>
+        </div>
+        <div><strong>ضمانت اصالت</strong><small>خرید مطمئن و آسوده</small></div>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M20 11a8 8 0 0 1-14.8 4M4 13a8 8 0 0 1 14.8-4"></path>
+            <path d="M4 5v8h8M20 19v-8h-8"></path>
+          </svg>
+        </div>
+        <div><strong>ضمانت بازگشت</strong><small>۷ روز فرصت بازگشت کالا</small></div>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.5 8.5 0 0 1 8.7 4a8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z"></path>
+          </svg>
+        </div>
+        <div><strong>پشتیبانی آنلاین</strong><small>همیشه همراه شما هستیم</small></div>
+      </div>
+    </section>
+
+    <section class="section scroll-reveal" id="categories">
+      <div class="section-heading">
+        <h2 class="section-title">دسته‌بندی محصولات</h2>
+        <a href="#products" class="view-all">مشاهده همه ←</a>
+      </div>
+
+      <div class="categories">
+        <a class="category-item" href="#products" data-category="هدیه">
+          <div class="category-circle">🎁</div>
+          <span>هدیه خاص</span>
+        </a>
+        <a class="category-item" href="#products" data-category="اکسسوری">
+          <div class="category-circle">💍</div>
+          <span>اکسسوری</span>
+        </a>
+        <a class="category-item" href="#products" data-category="دکور">
+          <div class="category-circle">🏡</div>
+          <span>دکوراسیون</span>
+        </a>
+        <a class="category-item" href="#products" data-category="فانتزی">
+          <div class="category-circle">🧸</div>
+          <span>فانتزی</span>
+        </a>
+        <a class="category-item" href="#products" data-category="دیجیتال">
+          <div class="category-circle">🎧</div>
+          <span>دیجیتال</span>
+        </a>
+        <a class="category-item" href="#products" data-category="نوشت‌افزار">
+          <div class="category-circle">✏️</div>
+          <span>نوشت‌افزار</span>
+        </a>
+        <a class="category-item" href="#products" data-category="عروسک">
+          <div class="category-circle">🧸</div>
+          <span>عروسک</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section amazing scroll-reveal" id="amazing">
+      <div class="amazing-header">
+        <div class="amazing-title"><span>⚡</span> پیشنهادهای شگفت‌انگیز</div>
+        <div class="countdown">
+          <span>پایان پیشنهاد در:</span>
+          <div class="time-box" id="seconds">۰۰</div>:
+          <div class="time-box" id="minutes">۰۰</div>:
+          <div class="time-box" id="hours">۰۸</div>
+        </div>
+      </div>
+
+      <div class="amazing-grid" id="amazingProducts"></div>
+    </section>
+
+    <section class="promo-grid scroll-reveal">
+      <div class="promo">
+        <div class="promo-content">
+          <span class="slide-tag">برای عزیزانت</span>
+          <h3>هدیه‌ای از جنس عشق 💗</h3>
+          <p>خاص‌ترین انتخاب‌ها برای خاص‌ترین آدم‌ها</p>
+          <button class="primary-btn" onclick="scrollToSection('products')">مشاهده محصولات</button>
+        </div>
+        <div class="promo-art">💝</div>
+      </div>
+
+      <div class="promo">
+        <div class="promo-content">
+          <span class="slide-tag">کالکشن جدید</span>
+          <h3>دنیای اکسسوری‌های خاص ✨</h3>
+          <p>استایل متفاوت با انتخاب‌های جذاب</p>
+          <button class="primary-btn" onclick="filterCategory('اکسسوری')">مشاهده محصولات</button>
+        </div>
+        <div class="promo-art">💎</div>
+      </div>
+    </section>
+
+    <section class="section scroll-reveal" id="products">
+      <div class="section-heading">
+        <h2 class="section-title">محبوب‌ترین محصولات</h2>
+        <a href="#products" class="view-all" onclick="clearFilter()">مشاهده همه ←</a>
+      </div>
+
+      <div class="products-grid" id="productsGrid">
+        <div class="skeleton-card"><div class="skeleton skeleton-image"></div><div class="skeleton skeleton-line"></div><div class="skeleton skeleton-line medium"></div></div>
+        <div class="skeleton-card"><div class="skeleton skeleton-image"></div><div class="skeleton skeleton-line"></div><div class="skeleton skeleton-line medium"></div></div>
+        <div class="skeleton-card"><div class="skeleton skeleton-image"></div><div class="skeleton skeleton-line"></div><div class="skeleton skeleton-line medium"></div></div>
+        <div class="skeleton-card"><div class="skeleton skeleton-image"></div><div class="skeleton skeleton-line"></div><div class="skeleton skeleton-line medium"></div></div>
+      </div>
+    </section>
+
+    <section class="section scroll-reveal" id="brands">
+      <div class="section-heading">
+        <h2 class="section-title">برندهای محبوب</h2>
+      </div>
+      <div class="brands">
+        <div class="brand">GIFTINO</div>
+        <div class="brand">MINISO</div>
+        <div class="brand">PAPCO</div>
+        <div class="brand">XIAOMI</div>
+        <div class="brand">LAVIN</div>
+        <div class="brand">NOVA</div>
+      </div>
+    </section>
+
+    <section class="newsletter scroll-reveal">
+      <div>
+        <h3>عضو خانواده گیفتینو شو! 💌</h3>
+        <p>از تخفیف‌ها و محصولات جدید زودتر از بقیه باخبر شو.</p>
+      </div>
+      <form class="newsletter-form" id="newsletterForm">
+        <input type="email" placeholder="ایمیل خود را وارد کنید..." required>
+        <button type="submit">عضویت</button>
+      </form>
+    </section>
+
+  </main>
+
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-logo">🎁 گیفتینو</div>
+        <button class="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+          بازگشت به بالا ↑
+        </button>
+      </div>
+
+      <div class="footer-columns">
+        <div class="footer-column">
+          <h4>درباره گیفتینو</h4>
+          <p>
+            گیفتینو دنیایی از هدیه‌های خاص و دوست‌داشتنی است.
+            ما اینجا هستیم تا انتخاب هدیه را برای شما آسان‌تر و
+            لحظه‌های عزیزانتان را زیباتر کنیم.
+          </p>
+          <div class="socials">
+            <a href="#" aria-label="اینستاگرام">◎</a>
+            <a href="#" aria-label="تلگرام">◈</a>
+            <a href="#" aria-label="واتساپ">◉</a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h4>دسترسی سریع</h4>
+          <a href="#products">محصولات</a>
+          <a href="#categories">دسته‌بندی‌ها</a>
+          <a href="#amazing">پیشنهادهای ویژه</a>
+          <a href="#brands">برندها</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>خدمات مشتریان</h4>
+          <a href="#">پرسش‌های متداول</a>
+          <a href="#">رویه ارسال سفارش</a>
+          <a href="#">شرایط بازگشت کالا</a>
+          <a href="#">پیگیری سفارش</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>راهنمای خرید</h4>
+          <a href="#">نحوه ثبت سفارش</a>
+          <a href="#">روش‌های پرداخت</a>
+          <a href="#">حریم خصوصی</a>
+          <a href="#">قوانین و مقررات</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>ارتباط با ما</h4>
+          <p>📍 تهران، ایران</p>
+          <p>☎ ۰۲۱-۱۲۳۴۵۶۷۸</p>
+          <p>✉ info@giftino.ir</p>
+          <div class="trust-row">
+            <div class="trust-box">
+              <span>🏅</span>
+              <small>نماد اعتماد</small>
+            </div>
+            <div class="trust-box">
+              <span>🛡️</span>
+              <small>پرداخت امن</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>تمامی حقوق برای فروشگاه اینترنتی گیفتینو محفوظ است © ۱۴۰۵</span>
+        <span>طراحی شده با ❤️ برای لحظه‌های خاص</span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="floating-top" id="floatingTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="بازگشت به بالا">↑</button>
+
+  <nav class="mobile-bottom">
+    <a href="#" class="active">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1z"/></svg>
+      خانه
+    </a>
+    <a href="#categories">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      دسته‌بندی
+    </a>
+    <a href="#amazing">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m13 2-3 9h7L9 22l2-9H5z"/></svg>
+      شگفت‌انگیز
+    </a>
+    <a href="#products">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3h2l2.4 12.5a2 2 0 0 0 2 1.5h8.8a2 2 0 0 0 1.9-1.5L22 8H6"/><circle cx="10" cy="21" r="1"/><circle cx="19" cy="21" r="1"/></svg>
+      محصولات
+    </a>
+    <a href="#footer">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+      حساب من
+    </a>
+  </nav>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    const products = [
+      {id:1,name:"ماگ سرامیکی طرح قلب مدل عاشقانه",category:"هدیه",emoji:"☕",price:285000,old:390000,discount:27,rating:"4.8",tag:"پرفروش"},
+      {id:2,name:"چراغ خواب فانتزی طرح ماه و ستاره",category:"دکور",emoji:"🌙",price:420000,old:560000,discount:25,rating:"4.9",tag:"محبوب"},
+      {id:3,name:"گردنبند استیل ظریف طرح پروانه",category:"اکسسوری",emoji:"🦋",price:195000,old:260000,discount:25,rating:"4.7",tag:"جدید"},
+      {id:4,name:"عروسک پولیشی خرسی نرم و دوست‌داشتنی",category:"عروسک",emoji:"🧸",price:350000,old:450000,discount:22,rating:"4.9",tag:"محبوب"},
+      {id:5,name:"هدفون بلوتوثی فانتزی رنگی",category:"دیجیتال",emoji:"🎧",price:790000,old:990000,discount:20,rating:"4.6",tag:"ویژه"},
+      {id:6,name:"دفتر پلنر روزانه با جلد فانتزی",category:"نوشت‌افزار",emoji:"📒",price:175000,old:230000,discount:24,rating:"4.8",tag:"جدید"},
+      {id:7,name:"باکس هدیه لاکچری مناسب تولد",category:"هدیه",emoji:"🎀",price:590000,old:750000,discount:21,rating:"5.0",tag:"پیشنهادی"},
+      {id:8,name:"گلدان دکوراتیو سرامیکی مدرن",category:"دکور",emoji:"🏺",price:310000,old:400000,discount:22,rating:"4.7",tag:"ویژه"},
+      {id:9,name:"دستبند فانتزی طرح ستاره",category:"اکسسوری",emoji:"✨",price:145000,old:195000,discount:26,rating:"4.6",tag:"جدید"},
+      {id:10,name:"عروسک خرگوش پولیشی کوچک",category:"عروسک",emoji:"🐰",price:220000,old:290000,discount:24,rating:"4.9",tag:"محبوب"},
+      {id:11,name:"اسپیکر بلوتوثی قابل حمل",category:"دیجیتال",emoji:"🔊",price:680000,old:850000,discount:20,rating:"4.8",tag:"ویژه"},
+      {id:12,name:"ست خودکار و روان‌نویس هدیه",category:"نوشت‌افزار",emoji:"🖊️",price:265000,old:350000,discount:24,rating:"4.7",tag:"پرفروش"}
+    ];
+
+    let cart = [];
+    let activeFilter = "";
+    let toastTimer;
+
+    const formatPrice = n => n.toLocaleString("fa-IR");
+    const productCard = (p,amazing=false) => `
+      <article class="product-card">
+        <div class="product-image">
+          <span class="discount">${p.discount}٪</span>
+          <button class="favorite" onclick="toggleFavorite(this)" aria-label="افزودن به علاقه‌مندی‌ها">♡</button>
+          <span class="product-emoji">${p.emoji}</span>
+        </div>
+        <div class="product-info">
+          <div class="product-name">${p.name}</div>
+          <div class="rating">★★★★★ <small>(${p.rating})</small></div>
+          <div class="price-row">
+            <div class="price">${formatPrice(p.price)} <small>تومان</small></div>
+          </div>
+          <div class="old-price">${formatPrice(p.old)} تومان</div>
+          <button class="add-cart" onclick="addToCart(${p.id})">+ افزودن به سبد خرید</button>
+        </div>
+      </article>`;
+
+    function renderProducts() {
+      const grid = document.getElementById("productsGrid");
+      const filtered = activeFilter
+        ? products.filter(p => p.category === activeFilter)
+        : products;
+
+      grid.innerHTML = filtered.length
+        ? filtered.map(p => productCard(p)).join("")
+        : '<div class="empty-products">محصولی در این دسته پیدا نشد.</div>';
+    }
+
+    function renderAmazing() {
+      document.getElementById("amazingProducts").innerHTML =
+        products.slice(0,4).map(p => productCard(p,true)).join("");
+    }
+
+    function addToCart(id) {
+      const product = products.find(p => p.id === id);
+      if (!product) return;
+      cart.push(product);
+      document.getElementById("cartCount").textContent = cart.length.toLocaleString("fa-IR");
+      showToast("«" + product.name + "» به سبد خرید اضافه شد ✓");
+    }
+
+    function showCart() {
+      if (!cart.length) {
+        showToast("سبد خرید شما خالی است!");
+        return;
+      }
+
+      const total = cart.reduce((sum,p) => sum+p.price,0);
+      const summary = cart.map(p => p.name).join("، ");
+      showToast("سبد خرید: " + cart.length.toLocaleString("fa-IR") +
+        " محصول | مجموع: " + formatPrice(total) + " تومان");
+    }
+
+    function toggleFavorite(btn) {
+      btn.classList.toggle("active");
+      btn.textContent = btn.classList.contains("active") ? "♥" : "♡";
+      showToast(btn.classList.contains("active")
+        ? "به علاقه‌مندی‌ها اضافه شد ♥"
+        : "از علاقه‌مندی‌ها حذف شد");
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      toast.textContent = message;
+      toast.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove("show"),2600);
+    }
+
+    function filterCategory(category) {
+      activeFilter = category;
+      renderProducts();
+      scrollToSection("products");
+    }
+
+    function clearFilter() {
+      activeFilter = "";
+      renderProducts();
+    }
+
+    function scrollToSection(id) {
+      document.getElementById(id)?.scrollIntoView({behavior:"smooth"});
+    }
+
+    // Slider
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".slide");
+    const dots = document.querySelectorAll(".dot");
+
+    function changeSlide(direction) {
+      slides[currentSlide].classList.remove("active");
+      dots[currentSlide].classList.remove("active");
+      currentSlide = (currentSlide + direction + slides.length) % slides.length;
+      slides[currentSlide].classList.add("active");
+      dots[currentSlide].classList.add("active");
+    }
+
+    let sliderTimer = setInterval(() => changeSlide(1),5000);
+
+    document.querySelector(".hero").addEventListener("mouseenter",() => clearInterval(sliderTimer));
+    document.querySelector(".hero").addEventListener("mouseleave",() => {
+      sliderTimer = setInterval(() => changeSlide(1),5000);
+    });
+
+    // Countdown
+    let remaining = 8*3600 + 25*60 + 40;
+
+    function updateCountdown() {
+      remaining--;
+      if (remaining < 0) remaining = 8*3600;
+
+      const h = Math.floor(remaining/3600);
+      const m = Math.floor((remaining%3600)/60);
+      const s = remaining%60;
+
+      document.getElementById("hours").textContent = String(h).padStart(2,"0").replace(/\d/g,d=>"۰۱۲۳۴۵۶۷۸۹"[d]);
+      document.getElementById("minutes").textContent = String(m).padStart(2,"0").replace(/\d/g,d=>"۰۱۲۳۴۵۶۷۸۹"[d]);
+      document.getElementById("seconds").textContent = String(s).padStart(2,"0").replace(/\d/g,d=>"۰۱۲۳۴۵۶۷۸۹"[d]);
+    }
+    setInterval(updateCountdown,1000);
+
+    // Search
+    const searchInput = document.getElementById("searchInput");
+    const searchResults = document.getElementById("searchResults");
+
+    searchInput.addEventListener("input",() => {
+      const value = searchInput.value.trim().toLowerCase();
+      if (!value) {
+        searchResults.classList.remove("active");
+        activeFilter = "";
+        renderProducts();
+        return;
+      }
+
+      const matches = products.filter(p =>
+        p.name.toLowerCase().includes(value) ||
+        p.category.toLowerCase().includes(value)
+      );
+
+      searchResults.innerHTML = matches.length
+        ? matches.slice(0,5).map(p => `
+          <div style="padding:10px;border-bottom:1px solid #eee;cursor:pointer;font-size:12px"
+            onclick="selectSearchProduct(${p.id})">
+            ${p.emoji} ${p.name}
+          </div>`).join("")
+        : '<div style="padding:10px;font-size:12px">محصولی پیدا نشد.</div>';
+
+      searchResults.classList.add("active");
+    });
+
+    function selectSearchProduct(id) {
+      const product = products.find(p => p.id === id);
+      searchInput.value = product.name;
+      searchResults.classList.remove("active");
+      activeFilter = product.category;
+      renderProducts();
+      scrollToSection("products");
+    }
+
+    document.addEventListener("click",e => {
+      if (!e.target.closest(".search-box")) {
+        searchResults.classList.remove("active");
+      }
+    });
+
+    // Category navigation
+    document.querySelectorAll(".category-item").forEach(item => {
+      item.addEventListener("click",() => {
+        activeFilter = item.dataset.category;
+        renderProducts();
+      });
+    });
+
+    // Newsletter
+    document.getElementById("newsletterForm").addEventListener("submit",e => {
+      e.preventDefault();
+      showToast("از عضویت شما در خانواده گیفتینو سپاسگزاریم 💗");
+      e.target.reset();
+    });
+
+    // Scroll reveal
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },{threshold:.1});
+
+    document.querySelectorAll(".scroll-reveal").forEach(el => revealObserver.observe(el));
+
+    // Back to top
+    const floatingTop = document.getElementById("floatingTop");
+
+    window.addEventListener("scroll",() => {
+      floatingTop.classList.toggle("visible",window.scrollY > 450);
+    },{passive:true});
+
+    // Mobile navigation active state
+    document.querySelectorAll(".mobile-bottom a").forEach(link => {
+      link.addEventListener("click",() => {
+        document.querySelectorAll(".mobile-bottom a").forEach(a => a.classList.remove("active"));
+        link.classList.add("active");
+      });
+    });
+
+    // Initial render with skeleton loading
+    window.addEventListener("load",() => {
+      setTimeout(() => {
+        renderProducts();
+        renderAmazing();
+      },700);
+    });
+  </script>
+</body>
+</html>
