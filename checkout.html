@@ -1,0 +1,1296 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#e6123d">
+<title>باکس هدیه لاکچری سورپرایزی | گیفتینو</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+:root{
+  --primary:#e6123d;
+  --primary-dark:#c70e32;
+  --primary-light:#fff0f3;
+  --text:#242424;
+  --muted:#81858b;
+  --border:#ececec;
+  --bg:#f5f5f5;
+  --white:#fff;
+  --green:#00a76f;
+  --gold:#f5a623;
+  --shadow:0 3px 15px rgba(0,0,0,.055);
+  --radius:12px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{
+  font-family:'Vazirmatn',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.9;
+}
+button,input{font-family:inherit}
+button{cursor:pointer}
+a{text-decoration:none;color:inherit}
+.container{width:min(1280px,94%);margin:auto}
+
+/* HEADER */
+.top-strip{
+  background:#f9f9f9;
+  color:#777;
+  padding:7px 0;
+  font-size:11px;
+}
+.top-strip .container{
+  display:flex;justify-content:space-between;gap:15px;
+}
+.header{
+  background:var(--primary);
+  color:white;padding:16px 0;
+}
+.header-main{
+  display:flex;align-items:center;gap:25px;
+}
+.logo{
+  font-size:29px;font-weight:900;
+  white-space:nowrap;letter-spacing:-1px;
+}
+.search-box{
+  flex:1;display:flex;align-items:center;
+  background:white;border-radius:9px;
+  overflow:hidden;height:46px;max-width:650px;
+}
+.search-box i{color:#999;padding:0 16px}
+.search-box input{
+  border:0;outline:0;flex:1;
+  font-size:13px;min-width:0;
+}
+.search-box button{
+  border:0;background:#f5f5f5;
+  color:#555;height:100%;padding:0 20px;
+}
+.header-actions{
+  display:flex;align-items:center;
+  gap:20px;margin-right:auto;
+}
+.header-action{
+  display:flex;align-items:center;
+  gap:8px;font-size:12px;white-space:nowrap;
+}
+.header-action i{font-size:20px}
+.cart-count{
+  background:white;color:var(--primary);
+  border-radius:50%;font-size:10px;
+  width:18px;height:18px;
+  display:inline-flex;align-items:center;
+  justify-content:center;font-weight:bold;
+}
+.nav{background:white;box-shadow:0 2px 7px #00000008}
+.nav-inner{
+  display:flex;align-items:center;
+  gap:28px;height:43px;
+  overflow-x:auto;white-space:nowrap;
+}
+.nav a{font-size:12px;color:#555}
+.nav a:hover{color:var(--primary)}
+.nav a:first-child{font-weight:700}
+.nav i{margin-left:5px;color:var(--primary)}
+
+/* BREADCRUMB */
+.breadcrumb{
+  display:flex;align-items:center;
+  gap:9px;padding:18px 0;
+  font-size:11px;color:#999;
+  flex-wrap:wrap;
+}
+.breadcrumb a:hover{color:var(--primary)}
+.breadcrumb i{font-size:9px}
+.breadcrumb span:last-child{color:#444}
+
+/* PRODUCT MAIN */
+.product-main{
+  background:white;border-radius:var(--radius);
+  padding:25px;
+  display:grid;
+  grid-template-columns:43% 1fr 290px;
+  gap:25px;
+  align-items:start;
+}
+.gallery{min-width:0}
+.main-image{
+  position:relative;
+  height:390px;background:#fafafa;
+  border-radius:12px;overflow:hidden;
+  display:flex;align-items:center;
+  justify-content:center;
+}
+.main-image img{
+  width:100%;height:100%;
+  object-fit:cover;transition:.4s;
+}
+.main-image:hover img{transform:scale(1.04)}
+.gallery-discount{
+  position:absolute;top:15px;right:15px;
+  background:var(--primary);color:white;
+  padding:5px 12px;border-radius:6px;
+  font-size:12px;font-weight:700;
+}
+.gallery-favorite{
+  position:absolute;top:15px;left:15px;
+  background:white;color:#888;
+  border:0;width:37px;height:37px;
+  border-radius:50%;font-size:16px;
+  box-shadow:var(--shadow);
+}
+.gallery-favorite.liked{color:var(--primary)}
+.gallery-share{
+  position:absolute;top:60px;left:15px;
+  background:white;color:#888;
+  border:0;width:37px;height:37px;
+  border-radius:50%;box-shadow:var(--shadow);
+}
+.thumbnails{
+  display:flex;gap:10px;
+  margin-top:13px;overflow-x:auto;
+}
+.thumbnail{
+  flex:0 0 75px;height:75px;
+  border:2px solid transparent;
+  border-radius:9px;overflow:hidden;
+  background:#fafafa;padding:0;
+}
+.thumbnail.active{border-color:var(--primary)}
+.thumbnail img{width:100%;height:100%;object-fit:cover}
+.gallery-caption{
+  text-align:center;color:#aaa;
+  font-size:10px;margin-top:10px;
+}
+
+/* PRODUCT INFO */
+.product-info{min-width:0}
+.product-category{
+  color:var(--primary);font-size:11px;
+  font-weight:600;margin-bottom:8px;
+}
+.product-title{
+  font-size:22px;font-weight:800;
+  line-height:1.9;margin-bottom:9px;
+}
+.english-title{
+  color:#aaa;font-size:11px;
+  direction:ltr;text-align:right;
+}
+.product-meta{
+  display:flex;align-items:center;
+  flex-wrap:wrap;gap:13px;
+  padding:12px 0;
+  border-bottom:1px solid var(--border);
+}
+.meta-item{
+  display:flex;align-items:center;
+  gap:6px;font-size:11px;color:#777;
+}
+.meta-item i{color:#999}
+.rating-stars{color:var(--gold);direction:ltr}
+.rating-number{font-weight:700;color:#444}
+.product-intro{
+  color:#666;font-size:12px;
+  margin:16px 0;line-height:2.2;
+}
+.feature-pills{
+  display:flex;gap:8px;flex-wrap:wrap;
+  margin:15px 0;
+}
+.feature-pill{
+  background:#f8f8f8;border-radius:7px;
+  padding:6px 10px;font-size:10px;color:#666;
+}
+.feature-pill i{color:var(--green);margin-left:5px}
+.product-features-title{
+  font-size:13px;font-weight:700;
+  margin:20px 0 10px;
+}
+.feature-list{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+.feature-item{
+  display:flex;align-items:center;gap:9px;
+  font-size:11px;color:#666;
+}
+.feature-item i{color:var(--primary);font-size:13px}
+
+/* PURCHASE BOX */
+.purchase-box{
+  border:1px solid var(--border);
+  border-radius:12px;padding:18px;
+  background:white;position:sticky;top:15px;
+}
+.purchase-heading{
+  font-size:13px;font-weight:800;
+  margin-bottom:13px;
+}
+.special-offer{
+  background:var(--primary-light);
+  color:var(--primary);border-radius:8px;
+  padding:9px 10px;font-size:10px;
+  display:flex;align-items:center;gap:7px;
+  margin-bottom:15px;
+}
+.price-old{
+  text-decoration:line-through;
+  color:#aaa;font-size:12px;
+}
+.discount-line{
+  display:flex;align-items:center;
+  justify-content:space-between;margin:8px 0;
+}
+.discount-line span:first-child{
+  color:#888;font-size:11px;
+}
+.discount-line span:last-child{
+  color:var(--primary);font-size:12px;font-weight:700;
+}
+.price-final{
+  font-size:23px;font-weight:900;
+  color:#222;margin-top:8px;
+}
+.price-final small{
+  font-size:10px;color:#888;font-weight:400;
+}
+.price-tax{
+  font-size:9px;color:#aaa;
+}
+.timer-wrap{
+  background:#fff6f7;
+  border:1px dashed #ffd0da;
+  border-radius:8px;padding:10px;
+  margin:15px 0;
+}
+.timer-title{
+  font-size:10px;color:#777;
+  text-align:center;margin-bottom:7px;
+}
+.timer{
+  display:flex;align-items:center;
+  justify-content:center;gap:7px;
+  direction:ltr;
+}
+.timer-block{
+  background:white;border-radius:6px;
+  min-width:38px;text-align:center;
+  padding:5px 4px;
+  box-shadow:0 1px 4px #00000008;
+}
+.timer-block strong{
+  display:block;color:var(--primary);
+  font-size:17px;line-height:1.3;
+}
+.timer-block small{font-size:8px;color:#999}
+.timer-separator{color:var(--primary);font-weight:900}
+.stock-info{
+  font-size:10px;color:var(--green);
+  margin:12px 0;
+}
+.stock-info i{margin-left:5px}
+.quantity-row{
+  display:flex;align-items:center;
+  justify-content:space-between;
+  margin:15px 0;
+}
+.quantity-row label{font-size:11px;color:#555}
+.quantity-control{
+  display:flex;align-items:center;
+  border:1px solid var(--border);
+  border-radius:7px;overflow:hidden;
+  height:35px;
+}
+.quantity-control button{
+  background:#f8f8f8;border:0;
+  width:33px;height:100%;color:#555;
+}
+.quantity-control input{
+  width:35px;text-align:center;
+  border:0;outline:0;font-size:12px;
+}
+.buy-button,.cart-button{
+  width:100%;border:0;border-radius:8px;
+  height:44px;font-size:12px;
+  font-weight:700;transition:.2s;
+}
+.buy-button{
+  background:var(--primary);color:white;
+}
+.buy-button:hover{background:var(--primary-dark)}
+.cart-button{
+  margin-top:9px;
+  background:var(--primary-light);
+  color:var(--primary);
+}
+.cart-button:hover{background:#ffe0e7}
+.seller-section{
+  border-top:1px solid var(--border);
+  margin-top:18px;padding-top:15px;
+}
+.seller-title{
+  font-size:11px;color:#999;margin-bottom:10px;
+}
+.seller-row{
+  display:flex;align-items:center;
+  justify-content:space-between;
+  font-size:11px;margin-bottom:10px;
+}
+.seller-name{font-weight:700}
+.seller-score{color:var(--green);font-size:10px}
+.seller-benefits{
+  display:flex;flex-direction:column;gap:10px;
+  margin-top:14px;
+}
+.benefit{
+  display:flex;align-items:center;
+  gap:9px;color:#777;font-size:10px;
+}
+.benefit i{font-size:15px;color:#999;width:18px}
+
+/* DELIVERY */
+.delivery-card{
+  background:#fafafa;border-radius:10px;
+  padding:13px;margin-top:15px;
+}
+.delivery-title{
+  font-size:11px;font-weight:700;
+  margin-bottom:9px;
+}
+.delivery-line{
+  display:flex;align-items:center;
+  gap:8px;color:#777;font-size:10px;
+  margin-top:8px;
+}
+.delivery-line i{color:var(--green)}
+
+/* DETAILS SECTION */
+.details-section{
+  background:white;border-radius:var(--radius);
+  margin-top:20px;overflow:hidden;
+}
+.details-tabs{
+  display:flex;align-items:center;
+  border-bottom:1px solid var(--border);
+  overflow-x:auto;white-space:nowrap;
+}
+.details-tab{
+  background:transparent;border:0;
+  padding:17px 23px;color:#777;
+  font-size:12px;position:relative;
+}
+.details-tab.active{
+  color:var(--primary);font-weight:700;
+}
+.details-tab.active:after{
+  content:"";position:absolute;
+  bottom:0;right:20px;left:20px;
+  height:3px;background:var(--primary);
+  border-radius:3px 3px 0 0;
+}
+.tab-content{padding:25px;display:none}
+.tab-content.active{display:block}
+.tab-content h3{
+  font-size:16px;margin-bottom:15px;
+}
+.tab-content p{
+  color:#666;font-size:12px;
+  line-height:2.5;margin-bottom:12px;
+}
+.description-highlight{
+  background:#fff7f8;
+  border-right:3px solid var(--primary);
+  padding:15px;border-radius:6px;
+  color:#555;font-size:12px;margin:18px 0;
+}
+
+/* SPEC TABLE */
+.spec-table{
+  width:100%;border-collapse:collapse;
+  font-size:12px;
+}
+.spec-table tr:nth-child(odd){background:#fafafa}
+.spec-table td{
+  padding:13px 15px;
+  border-bottom:1px solid #eee;
+}
+.spec-table td:first-child{
+  width:30%;color:#999;
+}
+.spec-table td:last-child{font-weight:600;color:#555}
+
+/* REVIEWS */
+.review-summary{
+  display:grid;grid-template-columns:200px 1fr;
+  gap:25px;padding:15px 0 25px;
+  border-bottom:1px solid var(--border);
+}
+.review-score{text-align:center}
+.review-score strong{
+  font-size:45px;display:block;line-height:1.5;
+}
+.review-score .rating-stars{font-size:18px}
+.review-score small{display:block;color:#aaa;font-size:10px}
+.rating-bars{display:flex;flex-direction:column;gap:8px}
+.rating-bar{
+  display:flex;align-items:center;gap:10px;
+  font-size:10px;color:#888;
+}
+.bar-track{
+  height:7px;background:#eee;
+  flex:1;border-radius:10px;overflow:hidden;
+}
+.bar-fill{
+  height:100%;background:var(--gold);
+  border-radius:10px;
+}
+.review-card{
+  padding:18px 0;
+  border-bottom:1px solid var(--border);
+}
+.review-top{
+  display:flex;justify-content:space-between;
+  align-items:center;
+}
+.reviewer{font-size:12px;font-weight:700}
+.review-date{font-size:10px;color:#aaa}
+.review-card p{margin:8px 0 0}
+.review-form{
+  margin-top:20px;padding:18px;
+  background:#fafafa;border-radius:10px;
+}
+.review-form h4{font-size:13px;margin-bottom:12px}
+.review-form textarea{
+  width:100%;min-height:95px;
+  border:1px solid var(--border);
+  border-radius:8px;padding:12px;
+  font-family:inherit;font-size:12px;
+  outline:none;resize:vertical;
+}
+.review-form textarea:focus{border-color:var(--primary)}
+.submit-review{
+  background:var(--primary);color:white;
+  border:0;border-radius:7px;
+  padding:9px 20px;font-size:11px;
+  margin-top:10px;
+}
+
+/* SIMILAR PRODUCTS */
+.similar-section{
+  margin-top:25px;
+}
+.section-heading{
+  display:flex;align-items:center;
+  justify-content:space-between;
+  margin-bottom:15px;
+}
+.section-heading h2{font-size:17px;font-weight:800}
+.section-heading a{font-size:11px;color:var(--primary)}
+.similar-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:13px;
+}
+.similar-card{
+  background:white;border-radius:var(--radius);
+  overflow:hidden;transition:.25s;
+}
+.similar-card:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow);
+}
+.similar-card img{
+  width:100%;height:170px;object-fit:cover;
+}
+.similar-info{padding:12px}
+.similar-info h3{
+  font-size:11px;font-weight:600;
+  height:43px;overflow:hidden;
+}
+.similar-price{
+  color:var(--primary);
+  font-weight:800;font-size:13px;
+  margin-top:8px;
+}
+.similar-price small{font-size:9px;color:#888;font-weight:400}
+
+/* FOOTER */
+.footer{
+  background:#222;color:#ddd;
+  margin-top:45px;padding:40px 0 20px;
+}
+.footer-grid{
+  display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;
+  gap:30px;
+}
+.footer h3{font-size:15px;color:white;margin-bottom:15px}
+.footer p,.footer a{color:#aaa;font-size:11px;line-height:2.5}
+.footer a:hover{color:white}
+.footer-logo{font-size:27px;font-weight:900;color:white;margin-bottom:12px}
+.footer-bottom{
+  border-top:1px solid #383838;
+  margin-top:30px;padding-top:17px;
+  text-align:center;font-size:10px;color:#888;
+}
+
+/* MOBILE BUY BAR */
+.mobile-buy-bar{
+  display:none;position:fixed;
+  bottom:0;right:0;left:0;
+  z-index:150;background:white;
+  border-top:1px solid var(--border);
+  box-shadow:0 -5px 20px #0000000c;
+  padding:10px 4%;
+  align-items:center;justify-content:space-between;
+  gap:12px;
+}
+.mobile-price{min-width:0}
+.mobile-price strong{
+  display:block;font-size:14px;
+  font-weight:900;white-space:nowrap;
+}
+.mobile-price small{font-size:9px;color:#999}
+.mobile-buy-button{
+  flex:1;max-width:210px;
+  border:0;background:var(--primary);
+  color:white;border-radius:8px;
+  height:43px;font-size:12px;font-weight:700;
+}
+
+/* TOAST */
+.toast{
+  position:fixed;bottom:25px;right:25px;
+  background:#222;color:white;
+  border-radius:9px;padding:12px 20px;
+  font-size:12px;z-index:300;
+  opacity:0;transform:translateY(20px);
+  transition:.3s;pointer-events:none;
+}
+.toast.show{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:1100px){
+  .product-main{
+    grid-template-columns:40% 1fr;
+  }
+  .purchase-box{
+    grid-column:1/-1;
+    position:static;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+  }
+  .purchase-box>*{min-width:0}
+  .purchase-heading,.special-offer{grid-column:1/-1}
+  .seller-section,.delivery-card{margin-top:0}
+}
+@media(max-width:700px){
+  body{padding-bottom:75px}
+  .top-strip{display:none}
+  .header{padding:12px 0}
+  .header-main{flex-wrap:wrap;gap:12px}
+  .logo{font-size:24px}
+  .search-box{order:3;flex-basis:100%;max-width:none}
+  .header-actions{gap:15px}
+  .header-action span:not(.cart-count){display:none}
+  .nav-inner{gap:20px;height:40px}
+  .breadcrumb{padding:13px 0;font-size:10px}
+  .product-main{
+    display:flex;flex-direction:column;
+    padding:14px;gap:17px;
+  }
+  .gallery,.product-info{width:100%}
+  .main-image{height:330px}
+  .thumbnail{flex-basis:65px;height:65px}
+  .product-title{font-size:18px}
+  .product-meta{gap:10px}
+  .product-intro{font-size:11px}
+  .feature-list{grid-template-columns:1fr 1fr}
+  .purchase-box{
+    width:100%;display:block;
+    position:static;padding:15px;
+  }
+  .purchase-heading,.special-offer{display:block}
+  .seller-section{margin-top:18px}
+  .delivery-card{margin-top:15px}
+  .details-section{margin-top:15px}
+  .details-tab{padding:14px 16px;font-size:11px}
+  .tab-content{padding:17px}
+  .review-summary{grid-template-columns:1fr;gap:15px}
+  .review-score{display:flex;align-items:center;justify-content:center;gap:15px}
+  .review-score strong{font-size:35px}
+  .similar-grid{grid-template-columns:repeat(2,1fr);gap:9px}
+  .similar-card img{height:145px}
+  .similar-info{padding:9px}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:20px}
+  .footer-grid>div:first-child{grid-column:1/-1}
+  .mobile-buy-bar{display:flex}
+  .toast{bottom:85px;right:15px;left:15px;text-align:center}
+}
+@media(min-width:701px){
+  .purchase-box .price-area{display:block}
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="top-strip">
+  <div class="container">
+    <span><i class="fa-solid fa-truck-fast"></i> ارسال سریع به سراسر کشور</span>
+    <span>پشتیبانی و مشاوره خرید: ۰۲۱-۱۲۳۴۵۶۷۸</span>
+  </div>
+</div>
+
+<header class="header">
+  <div class="container header-main">
+    <a href="#" class="logo"><i class="fa-solid fa-gift"></i> گیفتینو</a>
+
+    <form class="search-box" id="searchForm">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="search" placeholder="جستجو در میان هزاران هدیه خاص...">
+      <button type="submit">جستجو</button>
+    </form>
+
+    <div class="header-actions">
+      <a href="#" class="header-action">
+        <i class="fa-regular fa-user"></i>
+        <span>ورود | ثبت‌نام</span>
+      </a>
+      <a href="#" class="header-action">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span>سبد خرید</span>
+        <span class="cart-count" id="cartCount">۰</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="#"><i class="fa-solid fa-bars"></i> دسته‌بندی کالاها</a>
+    <a href="#">صفحه اصلی</a>
+    <a href="#">هدیه تولد</a>
+    <a href="#">هدیه عاشقانه</a>
+    <a href="#">هدیه مناسبتی</a>
+    <a href="#">باکس هدیه</a>
+    <a href="#">تخفیف‌های ویژه</a>
+    <a href="#">تماس با ما</a>
+  </div>
+</nav>
+
+<main class="container">
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <a href="#">خانه</a>
+    <i class="fa-solid fa-chevron-left"></i>
+    <a href="#">فروشگاه</a>
+    <i class="fa-solid fa-chevron-left"></i>
+    <a href="#">باکس هدیه</a>
+    <i class="fa-solid fa-chevron-left"></i>
+    <span>باکس هدیه لاکچری سورپرایزی</span>
+  </div>
+
+  <!-- PRODUCT MAIN -->
+  <section class="product-main">
+
+    <!-- GALLERY -->
+    <div class="gallery">
+      <div class="main-image">
+        <img id="mainImage"
+          src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=900&q=90"
+          alt="باکس هدیه لاکچری سورپرایزی">
+        <span class="gallery-discount">۲۰٪ تخفیف</span>
+        <button class="gallery-favorite" id="favoriteBtn" aria-label="افزودن به علاقه‌مندی‌ها">
+          <i class="fa-regular fa-heart"></i>
+        </button>
+        <button class="gallery-share" id="shareBtn" aria-label="اشتراک‌گذاری">
+          <i class="fa-solid fa-share-nodes"></i>
+        </button>
+      </div>
+
+      <div class="thumbnails">
+        <button class="thumbnail active" data-image="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=900&q=90">
+          <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=200&q=80" alt="نمای اصلی">
+        </button>
+        <button class="thumbnail" data-image="https://images.unsplash.com/photo-1513201099705-a9746e1e201f?w=900&q=90">
+          <img src="https://images.unsplash.com/photo-1513201099705-a9746e1e201f?w=200&q=80" alt="نمای دوم">
+        </button>
+        <button class="thumbnail" data-image="https://images.unsplash.com/photo-1513883049090-d0b7439799bf?w=900&q=90">
+          <img src="https://images.unsplash.com/photo-1513883049090-d0b7439799bf?w=200&q=80" alt="نمای سوم">
+        </button>
+        <button class="thumbnail" data-image="https://images.unsplash.com/photo-1512909006721-3d6018887383?w=900&q=90">
+          <img src="https://images.unsplash.com/photo-1512909006721-3d6018887383?w=200&q=80" alt="نمای چهارم">
+        </button>
+      </div>
+      <div class="gallery-caption">
+        <i class="fa-regular fa-images"></i>
+        برای مشاهده تصاویر بیشتر روی تصاویر کوچک کلیک کنید
+      </div>
+    </div>
+
+    <!-- PRODUCT DETAILS -->
+    <div class="product-info">
+      <div class="product-category">
+        <i class="fa-solid fa-gift"></i> باکس هدیه و سورپرایز
+      </div>
+
+      <h1 class="product-title">باکس هدیه لاکچری سورپرایزی؛ یک دنیا عشق در یک جعبه!</h1>
+      <div class="english-title">Luxury Surprise Gift Box</div>
+
+      <div class="product-meta">
+        <div class="meta-item">
+          <span class="rating-stars">★★★★★</span>
+          <span class="rating-number">۴.۸</span>
+        </div>
+        <a href="#reviews" class="meta-item">
+          <i class="fa-regular fa-comment"></i>
+          ۱۲۸ دیدگاه
+        </a>
+        <div class="meta-item">
+          <i class="fa-solid fa-eye"></i>
+          ۲,۴۵۰ بازدید
+        </div>
+        <div class="meta-item">
+          <i class="fa-solid fa-barcode"></i>
+          کد: GF-1025
+        </div>
+      </div>
+
+      <p class="product-intro">
+        اگر به دنبال هدیه‌ای خاص و فراموش‌نشدنی هستید، باکس هدیه لاکچری گیفتینو
+        انتخابی فوق‌العاده است. ترکیبی از زیبایی، ظرافت و عشق که در یک بسته‌بندی
+        شیک و جذاب آماده شده تا لحظه‌ای جادویی برای عزیزانتان بسازد.
+      </p>
+
+      <div class="feature-pills">
+        <span class="feature-pill"><i class="fa-solid fa-check"></i> بسته‌بندی لاکچری</span>
+        <span class="feature-pill"><i class="fa-solid fa-check"></i> مناسب سورپرایز</span>
+        <span class="feature-pill"><i class="fa-solid fa-check"></i> امکان درج پیام</span>
+      </div>
+
+      <h3 class="product-features-title">ویژگی‌های برجسته محصول</h3>
+
+      <div class="feature-list">
+        <div class="feature-item"><i class="fa-solid fa-gift"></i> جعبه کادویی مقاوم</div>
+        <div class="feature-item"><i class="fa-solid fa-heart"></i> طراحی عاشقانه</div>
+        <div class="feature-item"><i class="fa-solid fa-ribbon"></i> روبان تزئینی</div>
+        <div class="feature-item"><i class="fa-solid fa-envelope"></i> کارت تبریک اختصاصی</div>
+        <div class="feature-item"><i class="fa-solid fa-star"></i> کیفیت ممتاز</div>
+        <div class="feature-item"><i class="fa-solid fa-truck"></i> ارسال به سراسر کشور</div>
+      </div>
+    </div>
+
+    <!-- PURCHASE BOX -->
+    <aside class="purchase-box">
+
+      <h3 class="purchase-heading">قیمت و خرید محصول</h3>
+
+      <div class="special-offer">
+        <i class="fa-solid fa-fire"></i>
+        پیشنهاد ویژه گیفتینو؛ فرصت محدود خرید با تخفیف!
+      </div>
+
+      <div class="price-area">
+        <div class="price-old">۲,۳۰۰,۰۰۰ تومان</div>
+        <div class="discount-line">
+          <span>تخفیف شما</span>
+          <span>۴۶۰,۰۰۰ تومان (۲۰٪)</span>
+        </div>
+        <div class="price-final" id="productPrice">
+          ۱,۸۴۰,۰۰۰ <small>تومان</small>
+        </div>
+        <div class="price-tax">قیمت نهایی با احتساب تخفیف</div>
+      </div>
+
+      <div class="timer-wrap">
+        <div class="timer-title">زمان باقی‌مانده تا پایان پیشنهاد ویژه</div>
+        <div class="timer" id="timer">
+          <div class="timer-block"><strong id="hours">۰۵</strong><small>ساعت</small></div>
+          <span class="timer-separator">:</span>
+          <div class="timer-block"><strong id="minutes">۴۲</strong><small>دقیقه</small></div>
+          <span class="timer-separator">:</span>
+          <div class="timer-block"><strong id="seconds">۳۸</strong><small>ثانیه</small></div>
+        </div>
+      </div>
+
+      <div class="stock-info">
+        <i class="fa-solid fa-circle-check"></i>
+        موجود در انبار گیفتینو
+      </div>
+
+      <div class="quantity-row">
+        <label>تعداد سفارش:</label>
+        <div class="quantity-control">
+          <button id="increaseQty" aria-label="افزایش تعداد">+</button>
+          <input type="number" id="quantity" value="1" min="1" max="10">
+          <button id="decreaseQty" aria-label="کاهش تعداد">−</button>
+        </div>
+      </div>
+
+      <button class="buy-button" id="buyNow">
+        <i class="fa-solid fa-bolt"></i>
+        خرید فوری
+      </button>
+
+      <button class="cart-button" id="addToCart">
+        <i class="fa-solid fa-cart-plus"></i>
+        افزودن به سبد خرید
+      </button>
+
+      <div class="seller-section">
+        <div class="seller-title">اطلاعات فروشنده</div>
+        <div class="seller-row">
+          <span class="seller-name"><i class="fa-solid fa-store"></i> فروشگاه گیفتینو</span>
+          <span class="seller-score">۹۸٪ رضایت مشتریان</span>
+        </div>
+        <div class="seller-row">
+          <span style="color:#999">عملکرد فروشنده</span>
+          <span style="color:var(--green)">عالی</span>
+        </div>
+      </div>
+
+      <div class="seller-benefits">
+        <div class="benefit">
+          <i class="fa-solid fa-shield-halved"></i>
+          تضمین اصالت و سلامت کالا
+        </div>
+        <div class="benefit">
+          <i class="fa-solid fa-box-open"></i>
+          بسته‌بندی ایمن و اختصاصی
+        </div>
+        <div class="benefit">
+          <i class="fa-solid fa-rotate-left"></i>
+          ضمانت بازگشت طبق شرایط فروشگاه
+        </div>
+      </div>
+
+      <div class="delivery-card">
+        <div class="delivery-title">
+          <i class="fa-solid fa-truck-fast"></i>
+          روش ارسال
+        </div>
+        <div class="delivery-line">
+          <i class="fa-solid fa-circle-check"></i>
+          ارسال پستی به سراسر کشور
+        </div>
+        <div class="delivery-line">
+          <i class="fa-solid fa-clock"></i>
+          آماده‌سازی سفارش: ۱ تا ۲ روز کاری
+        </div>
+      </div>
+
+    </aside>
+  </section>
+
+  <!-- TABS -->
+  <section class="details-section" id="productDetails">
+
+    <div class="details-tabs">
+      <button class="details-tab active" data-tab="description">توضیحات محصول</button>
+      <button class="details-tab" data-tab="specifications">مشخصات فنی</button>
+      <button class="details-tab" data-tab="reviews">نظرات کاربران (۱۲۸)</button>
+    </div>
+
+    <!-- DESCRIPTION -->
+    <div class="tab-content active" id="description">
+      <h3>باکس هدیه لاکچری سورپرایزی؛ هدیه‌ای فراتر از انتظار</h3>
+
+      <p>
+        گاهی برای نشان دادن عشق و علاقه نیازی به کلمات نیست؛ یک هدیه زیبا می‌تواند
+        تمام احساسات شما را منتقل کند. باکس هدیه لاکچری سورپرایزی گیفتینو با طراحی
+        منحصر‌به‌فرد و بسته‌بندی چشم‌نواز، انتخابی ایده‌آل برای مناسبت‌های خاص است.
+      </p>
+
+      <div class="description-highlight">
+        <i class="fa-solid fa-heart" style="color:var(--primary)"></i>
+        یک سورپرایز خاص برای تولد، سالگرد ازدواج، ولنتاین، روز مادر و تمام لحظه‌های عاشقانه.
+      </div>
+
+      <h3>داخل این باکس چه چیزهایی قرار دارد؟</h3>
+      <p>
+        این مجموعه با بسته‌بندی لوکس، روبان تزئینی، کارت تبریک اختصاصی و اقلام
+        هدیه منتخب آماده شده است. ترکیب دقیق محتویات می‌تواند با توجه به نسخه
+        انتخابی و موجودی فروشگاه متفاوت باشد.
+      </p>
+
+      <h3>چرا باکس هدیه گیفتینو؟</h3>
+      <p>
+        طراحی زیبا، توجه به جزئیات، کیفیت بسته‌بندی و امکان شخصی‌سازی پیام تبریک
+        باعث می‌شود این محصول تجربه‌ای متفاوت از هدیه دادن ایجاد کند.
+      </p>
+    </div>
+
+    <!-- SPECIFICATIONS -->
+    <div class="tab-content" id="specifications">
+      <h3>جدول مشخصات محصول</h3>
+      <table class="spec-table">
+        <tr><td>نام محصول</td><td>باکس هدیه لاکچری سورپرایزی</td></tr>
+        <tr><td>برند</td><td>گیفتینو</td></tr>
+        <tr><td>کد محصول</td><td>GF-1025</td></tr>
+        <tr><td>دسته‌بندی</td><td>باکس هدیه و سورپرایز</td></tr>
+        <tr><td>جنس جعبه</td><td>مقوای سخت با روکش تزئینی</td></tr>
+        <tr><td>رنگ‌بندی</td><td>صورتی، قرمز، کرم (بسته به موجودی)</td></tr>
+        <tr><td>نوع بسته‌بندی</td><td>لوکس و کادویی</td></tr>
+        <tr><td>اقلام همراه</td><td>کارت تبریک و روبان تزئینی</td></tr>
+        <tr><td>قابلیت شخصی‌سازی</td><td>امکان درج پیام اختصاصی</td></tr>
+        <tr><td>مناسب برای</td><td>تولد، سالگرد، ولنتاین و مناسبت‌های خاص</td></tr>
+        <tr><td>کشور سازنده</td><td>ایران</td></tr>
+        <tr><td>گارانتی</td><td>تضمین سلامت هنگام تحویل</td></tr>
+      </table>
+    </div>
+
+    <!-- REVIEWS -->
+    <div class="tab-content" id="reviews">
+      <h3>نظرات و امتیاز کاربران</h3>
+
+      <div class="review-summary">
+        <div class="review-score">
+          <div>
+            <strong>۴.۸</strong>
+            <span class="rating-stars">★★★★★</span>
+            <small>از مجموع ۱۲۸ نظر</small>
+          </div>
+        </div>
+
+        <div class="rating-bars">
+          <div class="rating-bar">
+            <span>۵ ستاره</span>
+            <div class="bar-track"><div class="bar-fill" style="width:88%"></div></div>
+            <span>۸۸٪</span>
+          </div>
+          <div class="rating-bar">
+            <span>۴ ستاره</span>
+            <div class="bar-track"><div class="bar-fill" style="width:8%"></div></div>
+            <span>۸٪</span>
+          </div>
+          <div class="rating-bar">
+            <span>۳ ستاره</span>
+            <div class="bar-track"><div class="bar-fill" style="width:3%"></div></div>
+            <span>۳٪</span>
+          </div>
+          <div class="rating-bar">
+            <span>۲ ستاره</span>
+            <div class="bar-track"><div class="bar-fill" style="width:1%"></div></div>
+            <span>۱٪</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-top">
+          <span class="reviewer"><i class="fa-solid fa-circle-user"></i> سارا محمدی</span>
+          <span class="review-date">۱۴۰۵/۰۸/۱۲</span>
+        </div>
+        <div class="rating-stars">★★★★★</div>
+        <p>بسته‌بندی فوق‌العاده شیک بود. برای تولد دوستم خریدم و واقعاً سورپرایز شد. کیفیت محصول هم عالی بود.</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-top">
+          <span class="reviewer"><i class="fa-solid fa-circle-user"></i> علی رضایی</span>
+          <span class="review-date">۱۴۰۵/۰۸/۰۵</span>
+        </div>
+        <div class="rating-stars">★★★★★</div>
+        <p>دقیقاً مطابق عکس بود. ارسال هم خوب انجام شد. پیشنهاد می‌کنم.</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-top">
+          <span class="reviewer"><i class="fa-solid fa-circle-user"></i> نازنین کریمی</span>
+          <span class="review-date">۱۴۰۵/۰۷/۲۸</span>
+        </div>
+        <div class="rating-stars">★★★★☆</div>
+        <p>خیلی زیبا و خاص بود. فقط دوست داشتم تنوع رنگ بیشتری داشته باشه.</p>
+      </div>
+
+      <div class="review-form">
+        <h4>نظر شما درباره این محصول چیست؟</h4>
+        <textarea id="reviewText" placeholder="تجربه خرید خود را با دیگران به اشتراک بگذارید..."></textarea>
+        <button class="submit-review" id="submitReview">
+          <i class="fa-solid fa-paper-plane"></i>
+          ثبت نظر
+        </button>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- SIMILAR PRODUCTS -->
+  <section class="similar-section">
+    <div class="section-heading">
+      <h2>محصولات مشابه</h2>
+      <a href="#">مشاهده همه <i class="fa-solid fa-chevron-left"></i></a>
+    </div>
+
+    <div class="similar-grid">
+
+      <a href="#" class="similar-card">
+        <img src="https://images.unsplash.com/photo-1494972308805-463bc619d34e?w=500&q=80" alt="باکس گل رز">
+        <div class="similar-info">
+          <h3>باکس گل رز جاودان لوکس</h3>
+          <div class="rating-stars">★★★★★ <small style="color:#999">۴.۹</small></div>
+          <div class="similar-price">۲,۴۵۰,۰۰۰ <small>تومان</small></div>
+        </div>
+      </a>
+
+      <a href="#" class="similar-card">
+        <img src="https://images.unsplash.com/photo-1548907040-4d42c3e8d7f7?w=500&q=80" alt="جعبه شکلات">
+        <div class="similar-info">
+          <h3>جعبه شکلات کادویی پریمیوم</h3>
+          <div class="rating-stars">★★★★★ <small style="color:#999">۴.۸</small></div>
+          <div class="similar-price">۸۵۰,۰۰۰ <small>تومان</small></div>
+        </div>
+      </a>
+
+      <a href="#" class="similar-card">
+        <img src="https://images.unsplash.com/photo-1559454403-b8fb88521f11?w=500&q=80" alt="عروسک خرسی">
+        <div class="similar-info">
+          <h3>عروسک خرسی پولیشی</h3>
+          <div class="rating-stars">★★★★★ <small style="color:#999">۴.۷</small></div>
+          <div class="similar-price">۶۹۰,۰۰۰ <small>تومان</small></div>
+        </div>
+      </a>
+
+      <a href="#" class="similar-card">
+        <img src="https://images.unsplash.com/photo-1603006905003-be475563bc59?w=500&q=80" alt="شمع معطر">
+        <div class="similar-info">
+          <h3>شمع معطر دست‌ساز وانیلی</h3>
+          <div class="rating-stars">★★★★★ <small style="color:#999">۴.۶</small></div>
+          <div class="similar-price">۲۷۵,۰۰۰ <small>تومان</small></div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo"><i class="fa-solid fa-gift"></i> گیفتینو</div>
+        <p>در گیفتینو، هر هدیه داستانی از عشق و توجه است. ما کمک می‌کنیم برای عزیزانتان خاطره‌ای ماندگار بسازید.</p>
+      </div>
+      <div>
+        <h3>دسترسی سریع</h3>
+        <p><a href="#">صفحه اصلی</a></p>
+        <p><a href="#">فروشگاه</a></p>
+        <p><a href="#">درباره ما</a></p>
+        <p><a href="#">تماس با ما</a></p>
+      </div>
+      <div>
+        <h3>راهنمای خرید</h3>
+        <p><a href="#">نحوه ثبت سفارش</a></p>
+        <p><a href="#">روش‌های پرداخت</a></p>
+        <p><a href="#">رویه ارسال سفارش</a></p>
+        <p><a href="#">شرایط بازگشت کالا</a></p>
+      </div>
+      <div>
+        <h3>ارتباط با ما</h3>
+        <p>۰۲۱-۱۲۳۴۵۶۷۸</p>
+        <p>info@giftino.ir</p>
+        <p>تهران، ایران</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      تمامی حقوق این وب‌سایت متعلق به گیفتینو است © ۱۴۰۵
+    </div>
+  </div>
+</footer>
+
+<!-- MOBILE STICKY BUY BAR -->
+<div class="mobile-buy-bar">
+  <div class="mobile-price">
+    <strong>۱,۸۴۰,۰۰۰ تومان</strong>
+    <small>با ۲۰٪ تخفیف</small>
+  </div>
+  <button class="mobile-buy-button" id="mobileBuy">
+    <i class="fa-solid fa-cart-shopping"></i>
+    افزودن به سبد خرید
+  </button>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// IMAGE GALLERY
+const mainImage=document.getElementById('mainImage');
+
+document.querySelectorAll('.thumbnail').forEach(thumb=>{
+  thumb.addEventListener('click',()=>{
+    document.querySelectorAll('.thumbnail').forEach(t=>t.classList.remove('active'));
+    thumb.classList.add('active');
+    mainImage.style.opacity='0.3';
+    setTimeout(()=>{
+      mainImage.src=thumb.dataset.image;
+      mainImage.style.opacity='1';
+    },150);
+  });
+});
+
+// TOAST
+function showToast(message){
+  const toast=document.getElementById('toast');
+  toast.textContent=message;
+  toast.classList.add('show');
+  clearTimeout(window.toastTimer);
+  window.toastTimer=setTimeout(()=>toast.classList.remove('show'),2600);
+}
+
+// FAVORITE
+let isFavorite=false;
+document.getElementById('favoriteBtn').addEventListener('click',function(){
+  isFavorite=!isFavorite;
+  this.classList.toggle('liked',isFavorite);
+  this.innerHTML=isFavorite
+    ?'<i class="fa-solid fa-heart"></i>'
+    :'<i class="fa-regular fa-heart"></i>';
+  showToast(isFavorite?'به علاقه‌مندی‌ها اضافه شد':'از علاقه‌مندی‌ها حذف شد');
+});
+
+// SHARE
+document.getElementById('shareBtn').addEventListener('click',async()=>{
+  const shareData={
+    title:'باکس هدیه لاکچری سورپرایزی',
+    text:'مشاهده باکس هدیه لاکچری در گیفتینو',
+    url:window.location.href
+  };
+  try{
+    if(navigator.share){
+      await navigator.share(shareData);
+    }else if(navigator.clipboard){
+      await navigator.clipboard.writeText(window.location.href);
+      showToast('لینک محصول کپی شد');
+    }else{
+      showToast('امکان اشتراک‌گذاری در این مرورگر وجود ندارد');
+    }
+  }catch(error){
+    if(error.name!=='AbortError')showToast('اشتراک‌گذاری انجام نشد');
+  }
+});
+
+// QUANTITY
+const quantityInput=document.getElementById('quantity');
+
+function updateQuantity(value){
+  let qty=parseInt(value,10);
+  if(isNaN(qty))qty=1;
+  qty=Math.max(1,Math.min(10,qty));
+  quantityInput.value=qty;
+}
+
+document.getElementById('increaseQty').addEventListener('click',()=>{
+  updateQuantity(Number(quantityInput.value)+1);
+});
+
+document.getElementById('decreaseQty').addEventListener('click',()=>{
+  updateQuantity(Number(quantityInput.value)-1);
+});
+
+quantityInput.addEventListener('change',()=>{
+  updateQuantity(quantityInput.value);
+});
+
+// CART
+let cartCount=0;
+
+function addProductToCart(){
+  updateQuantity(quantityInput.value);
+  const qty=Number(quantityInput.value);
+  cartCount+=qty;
+  document.getElementById('cartCount').textContent=cartCount.toLocaleString('fa-IR');
+  showToast(qty.toLocaleString('fa-IR')+' عدد باکس هدیه به سبد خرید اضافه شد');
+}
+
+document.getElementById('addToCart').addEventListener('click',addProductToCart);
+document.getElementById('mobileBuy').addEventListener('click',addProductToCart);
+
+// BUY NOW
+document.getElementById('buyNow').addEventListener('click',()=>{
+  updateQuantity(quantityInput.value);
+  showToast('برای تکمیل خرید، اتصال درگاه و صفحه تسویه‌حساب لازم است');
+});
+
+// TABS
+document.querySelectorAll('.details-tab').forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    document.querySelectorAll('.details-tab').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
+
+    tab.classList.add('active');
+    document.getElementById(tab.dataset.tab).classList.add('active');
+  });
+});
+
+// REVIEW DEMO
+document.getElementById('submitReview').addEventListener('click',()=>{
+  const review=document.getElementById('reviewText').value.trim();
+  if(!review){
+    showToast('لطفاً متن نظر خود را وارد کنید');
+    return;
+  }
+  showToast('نظر شما ثبت آزمایشی شد؛ برای ثبت واقعی به سرور نیاز است');
+  document.getElementById('reviewText').value='';
+});
+
+// COUNTDOWN TIMER
+// زمان نمایشی آزمایشی: ۵ ساعت و ۴۲ دقیقه و ۳۸ ثانیه
+let remainingSeconds=5*3600+42*60+38;
+
+function updateTimer(){
+  const h=Math.floor(remainingSeconds/3600);
+  const m=Math.floor((remainingSeconds%3600)/60);
+  const s=remainingSeconds%60;
+
+  document.getElementById('hours').textContent=String(h).padStart(2,'0');
+  document.getElementById('minutes').textContent=String(m).padStart(2,'0');
+  document.getElementById('seconds').textContent=String(s).padStart(2,'0');
+
+  if(remainingSeconds>0){
+    remainingSeconds--;
+  }else{
+    document.getElementById('timer').innerHTML=
+      '<span style="color:#e6123d;font-size:12px">پیشنهاد ویژه به پایان رسید</span>';
+  }
+}
+
+updateTimer();
+setInterval(()=>{
+  if(remainingSeconds>=0)updateTimer();
+},1000);
+
+// SEARCH DEMO
+document.getElementById('searchForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  showToast('برای جستجو، اتصال به صفحه محصولات لازم است');
+});
+
+// MOBILE STICKY BAR VISIBILITY
+const mobileBar=document.querySelector('.mobile-buy-bar');
+function handleMobileBar(){
+  if(window.innerWidth<=700){
+    mobileBar.style.display='flex';
+  }else{
+    mobileBar.style.display='none';
+  }
+}
+handleMobileBar();
+window.addEventListener('resize',handleMobileBar);
+</script>
+
+</body>
+</html>
