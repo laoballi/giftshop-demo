@@ -1,0 +1,451 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#e6123d">
+<title>تسویه حساب | گیفتینو</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+:root{--red:#e6123d;--light:#fff0f3;--green:#00a76f;--text:#242424;--muted:#888;--border:#ececec;--bg:#f5f5f5}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Vazirmatn',sans-serif;background:var(--bg);color:var(--text);line-height:1.9}
+button,input,select,textarea{font-family:inherit}button{cursor:pointer}
+a{text-decoration:none;color:inherit}
+.container{width:min(1200px,94%);margin:auto}
+.header{background:var(--red);color:white;padding:15px 0}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-size:27px;font-weight:900}
+.secure-label{font-size:11px}
+.secure-label i{margin-left:6px}
+.nav{background:white;box-shadow:0 2px 7px #00000008}
+.nav-inner{height:42px;display:flex;align-items:center;gap:25px}
+.nav a{font-size:11px;color:#555}
+.breadcrumb{padding:17px 0;font-size:11px;color:#999}
+.breadcrumb i{font-size:9px;margin:0 8px}
+.breadcrumb a:hover{color:var(--red)}
+.heading{background:white;border-radius:12px;padding:18px 22px;margin-bottom:17px}
+.heading h1{font-size:19px}
+.heading p{font-size:11px;color:#999}
+.steps{display:flex;align-items:center;gap:10px;margin-top:12px}
+.step{display:flex;align-items:center;gap:7px;font-size:10px;color:#999}
+.step.active{color:var(--red);font-weight:700}
+.step-num{width:23px;height:23px;border-radius:50%;display:grid;place-items:center;background:#eee;font-size:10px}
+.step.active .step-num{background:var(--red);color:white}
+.step-line{height:1px;width:35px;background:#ddd}
+.layout{display:grid;grid-template-columns:1fr 340px;gap:17px;align-items:start}
+.panel{background:white;border-radius:12px;padding:21px;margin-bottom:15px}
+.panel-title{font-size:14px;font-weight:800;padding-bottom:14px;border-bottom:1px solid var(--border);margin-bottom:17px}
+.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field.full{grid-column:1/-1}
+.field label{font-size:11px;color:#555;font-weight:600}
+.field input,.field select,.field textarea{
+ width:100%;height:43px;border:1px solid var(--border);
+ border-radius:8px;padding:0 12px;font-size:11px;
+ outline:none;background:white;color:#333;
+}
+.field textarea{height:85px;padding:10px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--red)}
+.field input.invalid,.field select.invalid,.field textarea.invalid{border-color:var(--red);background:#fffafb}
+.field-error{font-size:9px;color:var(--red);min-height:13px}
+.shipping-options,.payment-options{display:flex;flex-direction:column;gap:10px}
+.option{
+ display:flex;align-items:center;gap:12px;
+ border:1px solid var(--border);border-radius:9px;
+ padding:13px;cursor:pointer;transition:.2s;
+}
+.option:has(input:checked){border-color:var(--red);background:#fff8f9}
+.option input{accent-color:var(--red);width:17px;height:17px}
+.option-icon{width:38px;height:38px;border-radius:8px;background:#f6f6f6;display:grid;place-items:center;color:#777;font-size:17px}
+.option-info{flex:1}
+.option-info strong{display:block;font-size:11px}
+.option-info small{font-size:10px;color:#999}
+.option-price{font-size:11px;font-weight:700;white-space:nowrap}
+.payment-option{display:flex;align-items:center;gap:12px;border:1px solid var(--border);border-radius:9px;padding:13px;cursor:pointer}
+.payment-option:has(input:checked){border-color:var(--red);background:#fff8f9}
+.payment-option input{accent-color:var(--red);width:17px;height:17px}
+.payment-icon{width:40px;height:40px;border-radius:9px;background:#f7f7f7;display:grid;place-items:center;color:var(--red);font-size:18px}
+.payment-info{flex:1}
+.payment-info strong{font-size:11px;display:block}
+.payment-info small{font-size:10px;color:#999}
+.bank-logos{display:flex;gap:5px;align-items:center}
+.bank-logo{font-size:9px;font-weight:800;background:#f3f3f3;padding:4px 7px;border-radius:5px;color:#666}
+.gateway-note{background:#f8f8f8;padding:11px;border-radius:8px;font-size:10px;color:#888;margin-top:10px}
+.gateway-note i{color:var(--green);margin-left:5px}
+.cod-note{background:#fff8e8;color:#98702c;padding:10px;border-radius:8px;font-size:10px;margin-top:10px;display:none}
+.summary{position:sticky;top:15px}
+.summary-product{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--border)}
+.summary-product img{width:60px;height:60px;object-fit:cover;border-radius:8px}
+.summary-product-info{flex:1}
+.summary-product-info strong{font-size:10px;display:block;line-height:1.8}
+.summary-product-info small{font-size:9px;color:#999}
+.summary-product-price{font-size:10px;font-weight:700;white-space:nowrap}
+.summary-row{display:flex;justify-content:space-between;gap:10px;font-size:10px;color:#777;margin:11px 0}
+.summary-row strong{color:#333}
+.discount{color:var(--green)}
+.total{border-top:1px solid var(--border);padding-top:15px;margin-top:15px}
+.total span{font-size:11px;color:#777}
+.total strong{display:block;font-size:21px;margin-top:5px}
+.total small{font-size:10px;color:#999}
+.submit-btn{width:100%;border:0;background:var(--red);color:white;border-radius:8px;padding:13px;font-size:12px;font-weight:700;margin-top:17px}
+.submit-btn:hover{background:#c70e32}
+.submit-btn:disabled{opacity:.6;cursor:not-allowed}
+.secure{text-align:center;color:#999;font-size:10px;margin-top:12px}
+.secure i{color:var(--green);margin-left:5px}
+.notice{background:#f8f8f8;padding:13px;border-radius:8px;color:#888;font-size:10px;margin-top:15px}
+.notice i{color:var(--red);margin-left:5px}
+.footer{background:#222;color:#aaa;margin-top:40px;padding:30px 0 18px;font-size:11px}
+.footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.toast{position:fixed;bottom:25px;right:25px;background:#222;color:white;padding:12px 20px;border-radius:8px;font-size:11px;opacity:0;transform:translateY(15px);transition:.3s;z-index:20;pointer-events:none}
+.toast.show{opacity:1;transform:translateY(0)}
+@media(max-width:850px){.layout{grid-template-columns:1fr}.summary{position:static}}
+@media(max-width:550px){.panel{padding:14px}.field-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.header-inner{align-items:center}.logo{font-size:23px}.secure-label{font-size:9px}.heading h1{font-size:16px}.steps{gap:5px}.step{font-size:9px}.step-line{width:15px}}
+</style>
+</head>
+<body>
+
+<header class="header">
+ <div class="container header-inner">
+  <a href="index.html" class="logo"><i class="fa-solid fa-gift"></i> گیفتینو</a>
+  <span class="secure-label"><i class="fa-solid fa-shield-halved"></i> خرید امن و مطمئن</span>
+ </div>
+</header>
+
+<nav class="nav"><div class="container nav-inner">
+ <a href="index.html">صفحه اصلی</a><a href="products.html">فروشگاه</a><a href="cart.html">سبد خرید</a>
+</div></nav>
+
+<main class="container">
+ <div class="breadcrumb"><a href="index.html">خانه</a><i class="fa-solid fa-chevron-left"></i><a href="cart.html">سبد خرید</a><i class="fa-solid fa-chevron-left"></i>تسویه حساب</div>
+
+ <section class="heading">
+  <h1><i class="fa-solid fa-file-invoice" style="color:#e6123d"></i> تکمیل سفارش و پرداخت</h1>
+  <p>اطلاعات خود را وارد کنید تا سفارش شما ثبت شود.</p>
+  <div class="steps">
+   <div class="step"><span class="step-num"><i class="fa-solid fa-check"></i></span> سبد خرید</div>
+   <span class="step-line"></span>
+   <div class="step active"><span class="step-num">۲</span> اطلاعات ارسال</div>
+   <span class="step-line"></span>
+   <div class="step"><span class="step-num">۳</span> پرداخت</div>
+  </div>
+ </section>
+
+ <form id="checkoutForm" novalidate>
+ <div class="layout">
+  <div>
+
+   <section class="panel">
+    <h2 class="panel-title"><i class="fa-solid fa-user" style="color:#e6123d"></i> اطلاعات گیرنده سفارش</h2>
+    <div class="field-grid">
+     <div class="field">
+      <label for="firstName">نام *</label>
+      <input id="firstName" name="firstName" placeholder="نام گیرنده" required>
+      <span class="field-error"></span>
+     </div>
+     <div class="field">
+      <label for="lastName">نام خانوادگی *</label>
+      <input id="lastName" name="lastName" placeholder="نام خانوادگی" required>
+      <span class="field-error"></span>
+     </div>
+     <div class="field">
+      <label for="mobile">شماره موبایل *</label>
+      <input id="mobile" name="mobile" inputmode="numeric" maxlength="11" placeholder="09123456789" required>
+      <span class="field-error"></span>
+     </div>
+     <div class="field">
+      <label for="email">ایمیل (اختیاری)</label>
+      <input id="email" name="email" type="email" placeholder="example@gmail.com">
+      <span class="field-error"></span>
+     </div>
+    </div>
+   </section>
+
+   <section class="panel">
+    <h2 class="panel-title"><i class="fa-solid fa-location-dot" style="color:#e6123d"></i> آدرس و اطلاعات ارسال</h2>
+    <div class="field-grid">
+     <div class="field">
+      <label for="province">استان *</label>
+      <select id="province" required>
+       <option value="">انتخاب استان</option>
+       <option>تهران</option><option>البرز</option><option>اصفهان</option>
+       <option>فارس</option><option>خراسان رضوی</option><option>آذربایجان شرقی</option>
+       <option>گیلان</option><option>مازندران</option><option>قم</option>
+       <option>یزد</option><option>کرمان</option><option>خوزستان</option>
+       <option>هرمزگان</option><option>کرمانشاه</option><option>همدان</option>
+       <option>قزوین</option><option>گلستان</option><option>اردبیل</option>
+       <option>کردستان</option><option>زنجان</option><option>لرستان</option>
+       <option>مرکزی</option><option>بوشهر</option><option>سمنان</option>
+       <option>چهارمحال و بختیاری</option><option>کهگیلویه و بویراحمد</option>
+       <option>سیستان و بلوچستان</option><option>خراسان شمالی</option>
+       <option>خراسان جنوبی</option><option>ایلام</option>
+       <option>آذربایجان غربی</option>
+      </select>
+      <span class="field-error"></span>
+     </div>
+     <div class="field">
+      <label for="city">شهر *</label>
+      <input id="city" placeholder="نام شهر" required>
+      <span class="field-error"></span>
+     </div>
+     <div class="field full">
+      <label for="address">آدرس دقیق *</label>
+      <textarea id="address" placeholder="خیابان، کوچه، پلاک، واحد و سایر جزئیات..." required></textarea>
+      <span class="field-error"></span>
+     </div>
+     <div class="field">
+      <label for="postal">کد پستی ۱۰ رقمی *</label>
+      <input id="postal" inputmode="numeric" maxlength="10" placeholder="1234567890" required>
+      <span class="field-error"></span>
+     </div>
+     <div class="field">
+      <label for="unit">پلاک / واحد (اختیاری)</label>
+      <input id="unit" placeholder="مثلاً پلاک ۱۲، واحد ۳">
+      <span class="field-error"></span>
+     </div>
+     <div class="field full">
+      <label for="description">توضیحات سفارش (اختیاری)</label>
+      <textarea id="description" placeholder="مثلاً زمان مناسب تحویل یا پیام روی کارت هدیه..."></textarea>
+     </div>
+    </div>
+   </section>
+
+   <section class="panel">
+    <h2 class="panel-title"><i class="fa-solid fa-truck-fast" style="color:#e6123d"></i> انتخاب روش ارسال</h2>
+    <div class="shipping-options">
+     <label class="option">
+      <input type="radio" name="shipping" value="normal" checked>
+      <span class="option-icon"><i class="fa-solid fa-truck"></i></span>
+      <span class="option-info"><strong>ارسال عادی</strong><small>تحویل تقریبی ۳ تا ۵ روز کاری</small></span>
+      <span class="option-price">۶۵,۰۰۰ تومان</span>
+     </label>
+     <label class="option">
+      <input type="radio" name="shipping" value="express">
+      <span class="option-icon"><i class="fa-solid fa-truck-fast"></i></span>
+      <span class="option-info"><strong>ارسال فوری</strong><small>تحویل تقریبی ۱ تا ۲ روز کاری (مناطق تحت پوشش)</small></span>
+      <span class="option-price">۱۲۰,۰۰۰ تومان</span>
+     </label>
+    </div>
+   </section>
+
+   <section class="panel">
+    <h2 class="panel-title"><i class="fa-solid fa-credit-card" style="color:#e6123d"></i> روش پرداخت</h2>
+    <div class="payment-options">
+     <label class="payment-option">
+      <input type="radio" name="payment" value="gateway" checked>
+      <span class="payment-icon"><i class="fa-solid fa-building-columns"></i></span>
+      <span class="payment-info"><strong>پرداخت آنلاین از درگاه بانکی</strong><small>پرداخت امن با کارت‌های عضو شتاب</small></span>
+      <span class="bank-logos"><span class="bank-logo">ZARIN</span><span class="bank-logo">SHETAB</span></span>
+     </label>
+     <label class="payment-option">
+      <input type="radio" name="payment" value="cod">
+      <span class="payment-icon"><i class="fa-solid fa-money-bill-wave"></i></span>
+      <span class="payment-info"><strong>پرداخت در محل</strong><small>پرداخت هنگام تحویل سفارش (در صورت پشتیبانی)</small></span>
+     </label>
+    </div>
+    <div class="gateway-note" id="gatewayNote">
+     <i class="fa-solid fa-lock"></i>
+     اطلاعات کارت بانکی در صفحه امن درگاه پرداخت وارد می‌شود.
+     این نمونه نمایشی است و به درگاه واقعی متصل نیست.
+    </div>
+    <div class="cod-note" id="codNote">
+     <i class="fa-solid fa-circle-info"></i>
+     امکان پرداخت در محل باید توسط فروشگاه و شرکت حمل‌ونقل تأیید شود.
+    </div>
+   </section>
+
+  </div>
+
+  <!-- STICKY SUMMARY -->
+  <aside class="summary">
+   <section class="panel">
+    <h2 class="panel-title">خلاصه سفارش شما</h2>
+    <div id="orderProducts"></div>
+    <div class="summary-row"><span>جمع قیمت کالاها</span><strong id="subtotal">۰ تومان</strong></div>
+    <div class="summary-row discount"><span>تخفیف محصولات</span><strong id="productDiscount">۰ تومان</strong></div>
+    <div class="summary-row discount"><span>کد تخفیف</span><strong id="couponDiscount">۰ تومان</strong></div>
+    <div class="summary-row"><span>بسته‌بندی هدیه</span><strong id="giftCost">۰ تومان</strong></div>
+    <div class="summary-row"><span>هزینه ارسال</span><strong id="shippingCost">۰ تومان</strong></div>
+    <div class="total">
+     <span>مبلغ نهایی قابل پرداخت</span>
+     <strong id="total">۰</strong>
+     <small>تومان</small>
+    </div>
+    <button class="submit-btn" type="submit" id="payButton">
+     <i class="fa-solid fa-lock"></i> ثبت سفارش و پرداخت
+    </button>
+    <div class="secure"><i class="fa-solid fa-shield-halved"></i> حفاظت از اطلاعات و خرید امن</div>
+    <div class="notice"><i class="fa-solid fa-circle-info"></i> با ثبت سفارش، قوانین و شرایط خرید گیفتینو را می‌پذیرید.</div>
+   </section>
+  </aside>
+ </div>
+ </form>
+</main>
+
+<footer class="footer"><div class="container footer-inner">
+ <span>© تمامی حقوق متعلق به گیفتینو است.</span>
+ <span>پشتیبانی: ۰۲۱-۱۲۳۴۵۶۷۸</span>
+</div></footer>
+<div class="toast" id="toast"></div>
+
+<script>
+const CART_KEY='giftino_cart';
+const ORDER_KEY='giftino_pending_order';
+const fmt=n=>Math.max(0,Math.round(n)).toLocaleString('fa-IR');
+let order={};
+let cart=[];
+
+try{
+ order=JSON.parse(localStorage.getItem(ORDER_KEY))||{};
+ cart=Array.isArray(order.items)?order.items:[];
+}catch(e){cart=[]}
+
+if(!cart.length){
+ try{cart=JSON.parse(localStorage.getItem(CART_KEY))||[]}catch(e){cart=[]}
+}
+if(!cart.length){
+ alert('سبد خرید شما خالی است.');
+ location.replace('cart.html');
+}
+
+const shippingRadios=document.querySelectorAll('input[name="shipping"]');
+const paymentRadios=document.querySelectorAll('input[name="payment"]');
+
+function shippingPrice(){
+ return document.querySelector('input[name="shipping"]:checked').value==='express'?120000:65000;
+}
+function paymentMethod(){
+ return document.querySelector('input[name="payment"]:checked').value;
+}
+function calculate(){
+ const subtotal=Number(order.subtotal)||cart.reduce((s,p)=>s+p.price*p.qty,0);
+ const old=cart.reduce((s,p)=>s+(p.oldPrice||p.price)*p.qty,0);
+ const productDiscount=Number(order.productDiscount)||Math.max(0,old-subtotal);
+ const couponDiscount=Number(order.couponDiscount)||0;
+ const gift=Number(order.gift)||0;
+ const shipping=cart.length?shippingPrice():0;
+ return {subtotal,productDiscount,couponDiscount,gift,shipping,total:Math.max(0,subtotal-couponDiscount+gift+shipping)};
+}
+
+function renderSummary(){
+ const subtotal=Number(order.subtotal)||cart.reduce((s,p)=>s+p.price*p.qty,0);
+ const old=cart.reduce((s,p)=>s+(p.oldPrice||p.price)*p.qty,0);
+ const productDiscount=Number(order.productDiscount)||Math.max(0,old-subtotal);
+ const couponDiscount=Number(order.couponDiscount)||0;
+ const gift=Number(order.gift)||0;
+
+ document.getElementById('orderProducts').innerHTML=cart.map(p=>`
+  <div class="summary-product">
+   <img src="${p.image}" alt="${p.name}">
+   <div class="summary-product-info"><strong>${p.name}</strong><small>تعداد: ${fmt(p.qty)}</small></div>
+   <span class="summary-product-price">${fmt(p.price*p.qty)}</span>
+  </div>
+ `).join('');
+
+ document.getElementById('subtotal').textContent=fmt(subtotal)+' تومان';
+ document.getElementById('productDiscount').textContent=fmt(productDiscount)+' تومان';
+ document.getElementById('couponDiscount').textContent=fmt(couponDiscount)+' تومان';
+ document.getElementById('giftCost').textContent=fmt(gift)+' تومان';
+ document.getElementById('shippingCost').textContent=fmt(shippingPrice())+' تومان';
+ document.getElementById('total').textContent=fmt(subtotal-couponDiscount+gift+shippingPrice());
+}
+shippingRadios.forEach(r=>r.addEventListener('change',()=>{
+ document.getElementById('shippingCost').textContent=fmt(shippingPrice())+' تومان';
+ renderSummary();
+}));
+paymentRadios.forEach(r=>r.addEventListener('change',()=>{
+ const cod=paymentMethod()==='cod';
+ document.getElementById('gatewayNote').style.display=cod?'none':'block';
+ document.getElementById('codNote').style.display=cod?'block':'none';
+}));
+
+function toast(s){
+ const t=document.getElementById('toast');
+ t.textContent=s;t.classList.add('show');
+ setTimeout(()=>t.classList.remove('show'),2500);
+}
+
+function validate(){
+ let valid=true;
+ const required=['firstName','lastName','mobile','province','city','address','postal'];
+ required.forEach(id=>{
+  const el=document.getElementById(id);
+  const err=el.parentElement.querySelector('.field-error');
+  let message='';
+  if(!el.value.trim())message='تکمیل این فیلد الزامی است.';
+  if(id==='mobile' && el.value.trim() && !/^09\d{9}$/.test(el.value.trim()))message='شماره موبایل معتبر وارد کنید.';
+  if(id==='postal' && el.value.trim() && !/^\d{10}$/.test(el.value.trim()))message='کد پستی باید ۱۰ رقم باشد.';
+  if(message){valid=false;el.classList.add('invalid');err.textContent=message}
+  else{el.classList.remove('invalid');err.textContent=''}
+ });
+ const email=document.getElementById('email');
+ if(email.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)){
+  valid=false;email.classList.add('invalid');
+  email.parentElement.querySelector('.field-error').textContent='ایمیل معتبر وارد کنید.';
+ }
+ return valid;
+}
+
+// Demo checkout only. Replace this with a real backend payment request.
+document.getElementById('checkoutForm').addEventListener('submit',async e=>{
+ e.preventDefault();
+ if(!validate()){
+  toast('لطفاً اطلاعات ضروری را به‌درستی تکمیل کنید');
+  document.querySelector('.invalid')?.scrollIntoView({behavior:'smooth',block:'center'});
+  return;
+ }
+ if(!cart.length){toast('سبد خرید خالی است');return}
+
+ const btn=document.getElementById('payButton');
+ btn.disabled=true;
+ btn.innerHTML='<i class="fa-solid fa-spinner fa-spin"></i> در حال ثبت سفارش...';
+
+ const totals=calculate();
+ const orderNumber='GF'+Date.now().toString().slice(-8)+Math.floor(Math.random()*90+10);
+
+ const customer={
+  firstName:document.getElementById('firstName').value.trim(),
+  lastName:document.getElementById('lastName').value.trim(),
+  mobile:document.getElementById('mobile').value.trim(),
+  email:document.getElementById('email').value.trim(),
+  province:document.getElementById('province').value,
+  city:document.getElementById('city').value.trim(),
+  address:document.getElementById('address').value.trim(),
+  postal:document.getElementById('postal').value.trim(),
+  unit:document.getElementById('unit').value.trim(),
+  description:document.getElementById('description').value.trim()
+ };
+
+ const completedOrder={
+  orderNumber,
+  customer,
+  items:cart,
+  ...totals,
+  shippingMethod:document.querySelector('input[name="shipping"]:checked').value,
+  paymentMethod:paymentMethod(),
+  status:paymentMethod()==='gateway'?'پرداخت آزمایشی موفق':'ثبت سفارش آزمایشی - پرداخت در محل',
+  createdAt:new Date().toISOString()
+ };
+
+ localStorage.setItem('giftino_completed_order',JSON.stringify(completedOrder));
+
+ // In a real store, verify the payment on the server before redirecting.
+ await new Promise(resolve=>setTimeout(resolve,900));
+
+ localStorage.removeItem(CART_KEY);
+ localStorage.removeItem(ORDER_KEY);
+
+ const params=new URLSearchParams({
+  order:orderNumber,
+  total:String(totals.total),
+  payment:paymentMethod()
+ });
+ location.href='success.html?'+params.toString();
+});
+
+renderSummary();
+</script>
+</body>
+</html>
