@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>پرداخت امن | گیفتینو</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Vazirmatn,sans-serif;background:#f5f6f8;color:#333;min-height:100vh}
+    a{text-decoration:none;color:inherit}
+    .topbar{height:68px;background:#fff;border-bottom:1px solid #eee;display:flex;align-items:center;justify-content:space-between;padding:0 max(calc((100% - 1100px)/2),20px)}
+    .logo{font-size:27px;font-weight:900;color:#e6123d}.logo span{color:#333}
+    .secure{font-size:12px;color:#777;display:flex;align-items:center;gap:7px}
+    .secure svg{width:17px;color:#16a36a}
+    .container{max-width:480px;margin:42px auto;padding:0 16px}
+    .gateway{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 8px 35px #202a3b12}
+    .gateway-head{background:#fff;padding:25px 28px 20px;text-align:center;border-bottom:1px solid #f0f0f0}
+    .gateway-logo{width:66px;height:66px;border-radius:20px;background:#eaf7ff;color:#1686c7;display:grid;place-items:center;margin:0 auto 12px;font-size:29px;font-weight:900}
+    .gateway-head h1{font-size:19px;font-weight:800;margin-bottom:5px}
+    .gateway-head p{font-size:12px;color:#888}
+    .amount-box{margin:20px 24px 10px;background:#fafafa;border:1px solid #eee;border-radius:12px;padding:15px;display:flex;justify-content:space-between;align-items:center}
+    .amount-box span{font-size:13px;color:#777}.amount{font-size:21px;font-weight:900;color:#222}.amount small{font-size:11px;font-weight:500;color:#777}
+    form{padding:14px 24px 24px}
+    .field{margin-bottom:17px}
+    label{display:block;font-size:12px;font-weight:700;margin-bottom:8px;color:#444}
+    input{width:100%;height:48px;border:1px solid #ddd;border-radius:9px;padding:0 13px;font-family:inherit;font-size:15px;outline:none;transition:.2s;direction:ltr;text-align:left;background:#fff}
+    input:focus{border-color:#1686c7;box-shadow:0 0 0 3px #1686c718}
+    input::placeholder{color:#bbb}
+    .field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .card-input{position:relative}
+    .card-input input{padding-left:48px;letter-spacing:1px}
+    .card-icon{position:absolute;left:13px;top:13px;color:#aaa;font-size:18px}
+    .hint{font-size:10px;color:#999;margin-top:6px}
+    .pay-button{width:100%;height:51px;border:0;border-radius:10px;background:#1686c7;color:white;font-family:inherit;font-size:15px;font-weight:800;cursor:pointer;transition:.2s;margin-top:7px}
+    .pay-button:hover{background:#0874b4;transform:translateY(-1px)}
+    .pay-button:disabled{opacity:.75;cursor:not-allowed;transform:none}
+    .loader{display:inline-block;width:17px;height:17px;border:2px solid #ffffff66;border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-left:8px}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .gateway-foot{text-align:center;padding:0 20px 20px;font-size:10px;color:#aaa;line-height:2}
+    .banks{display:flex;justify-content:center;gap:9px;margin:12px 0 3px}
+    .bank{border:1px solid #eee;border-radius:5px;padding:4px 9px;font-size:10px;color:#777}
+    .back-link{display:block;text-align:center;margin-top:20px;font-size:12px;color:#777}
+    .back-link:hover{color:#e6123d}
+    .notice{font-size:10px;color:#999;text-align:center;margin-top:18px;line-height:2}
+    .error{display:none;background:#fff0f2;border:1px solid #ffd5dc;color:#d52242;border-radius:8px;padding:10px 12px;font-size:11px;margin-bottom:14px}
+    @media(max-width:500px){.container{margin:20px auto}.topbar{height:58px}.gateway-head{padding-top:20px}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="logo" href="index.html">گیفتینو<span>.</span></a>
+    <div class="secure">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+      پرداخت آزمایشی
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="gateway">
+      <div class="gateway-head">
+        <div class="gateway-logo">Z</div>
+        <h1>درگاه پرداخت امن</h1>
+        <p>پرداخت سفارش فروشگاه اینترنتی گیفتینو</p>
+      </div>
+
+      <div class="amount-box">
+        <span>مبلغ قابل پرداخت</span>
+        <div class="amount"><b id="amount">۰</b> <small>تومان</small></div>
+      </div>
+
+      <form id="paymentForm">
+        <div class="error" id="errorBox"></div>
+
+        <div class="field">
+          <label for="cardNumber">شماره کارت</label>
+          <div class="card-input">
+            <input id="cardNumber" type="text" inputmode="numeric" autocomplete="cc-number" maxlength="19" placeholder="6037 - 0000 - 0000 - 0000" required>
+            <span class="card-icon">▤</span>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="cvv">CVV2</label>
+            <input id="cvv" type="password" inputmode="numeric" autocomplete="off" maxlength="4" placeholder="•••" required>
+          </div>
+          <div class="field">
+            <label>تاریخ انقضا</label>
+            <div style="display:flex;gap:7px">
+              <input id="month" type="text" inputmode="numeric" maxlength="2" placeholder="ماه" aria-label="ماه انقضا" required>
+              <input id="year" type="text" inputmode="numeric" maxlength="2" placeholder="سال" aria-label="سال انقضا" required>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="otp">رمز پویا</label>
+          <input id="otp" type="password" inputmode="numeric" maxlength="8" placeholder="رمز یکبار مصرف" required>
+          <div class="hint">در این نمونه، رمز پویا صرفاً نمایشی است و به بانک متصل نیست.</div>
+        </div>
+
+        <button class="pay-button" id="payButton" type="submit">پرداخت و تکمیل سفارش</button>
+      </form>
+
+      <div class="gateway-foot">
+        <div class="banks"><span class="bank">بانک ملت</span><span class="bank">بانک ملی</span><span class="bank">بانک سامان</span></div>
+        این صفحه یک نمونه نمایشی درگاه پرداخت است و تراکنش بانکی واقعی انجام نمی‌دهد.
+      </div>
+    </section>
+    <a href="checkout.html" class="back-link">بازگشت به مرحله ثبت سفارش</a>
+    <p class="notice">اطلاعات کارت بانکی شما در این نسخه ذخیره یا به سرور ارسال نمی‌شود.</p>
+  </main>
+
+  <script>
+    const params = new URLSearchParams(location.search);
+    const amount = Math.max(0, Number(params.get('amount')) || 0);
+    const order = params.get('order') || 'GFT-' + Date.now().toString().slice(-8);
+
+    document.getElementById('amount').textContent =
+      amount.toLocaleString('fa-IR');
+
+    const card = document.getElementById('cardNumber');
+    const cvv = document.getElementById('cvv');
+    const month = document.getElementById('month');
+    const year = document.getElementById('year');
+    const otp = document.getElementById('otp');
+    const form = document.getElementById('paymentForm');
+    const button = document.getElementById('payButton');
+    const errorBox = document.getElementById('errorBox');
+
+    function onlyDigits(value) {
+      return value.replace(/\D/g, '');
+    }
+
+    card.addEventListener('input', () => {
+      const digits = onlyDigits(card.value).slice(0, 16);
+      card.value = digits.replace(/(\d{4})(?=\d)/g, '$1 - ');
+    });
+
+    [cvv, month, year, otp].forEach(input => {
+      input.addEventListener('input', () => {
+        input.value = onlyDigits(input.value);
+      });
+    });
+
+    function showError(message) {
+      errorBox.textContent = message;
+      errorBox.style.display = 'block';
+    }
+
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      errorBox.style.display = 'none';
+
+      const cardDigits = onlyDigits(card.value);
+
+      if (cardDigits.length !== 16) {
+        showError('شماره کارت باید ۱۶ رقم باشد.');
+        card.focus();
+        return;
+      }
+      if (cvv.value.length < 3 || cvv.value.length > 4) {
+        showError('CVV2 باید ۳ یا ۴ رقم باشد.');
+        cvv.focus();
+        return;
+      }
+      if (Number(month.value) < 1 || Number(month.value) > 12 || month.value.length !== 2) {
+        showError('ماه انقضا را به‌درستی وارد کنید.');
+        month.focus();
+        return;
+      }
+      if (year.value.length !== 2) {
+        showError('سال انقضا را به‌صورت دو رقمی وارد کنید.');
+        year.focus();
+        return;
+      }
+      if (otp.value.length < 4) {
+        showError('رمز پویا باید حداقل ۴ رقم باشد.');
+        otp.focus();
+        return;
+      }
+
+      button.disabled = true;
+      button.innerHTML = '<span class="loader"></span> در حال پردازش پرداخت...';
+
+      // شبیه‌سازی پرداخت؛ هیچ اطلاعات کارت ذخیره یا ارسال نمی‌شود.
+      setTimeout(() => {
+        const successUrl = new URL('success.html', location.href);
+        successUrl.searchParams.set('order', order);
+        successUrl.searchParams.set('amount', String(amount));
+        location.href = successUrl.toString();
+      }, 3000);
+    });
+  </script>
+</body>
+</html>
