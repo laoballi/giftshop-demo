@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ثبت موفق سفارش | گیفتینو</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Vazirmatn,sans-serif;background:#f5f6f8;color:#333;min-height:100vh}
+    a{text-decoration:none;color:inherit}
+    .topbar{height:68px;background:#fff;border-bottom:1px solid #eee;display:flex;align-items:center;justify-content:space-between;padding:0 max(calc((100% - 1050px)/2),20px)}
+    .logo{font-size:27px;font-weight:900;color:#e6123d}.logo span{color:#333}
+    .help{font-size:12px;color:#777}
+    .container{max-width:700px;margin:38px auto;padding:0 16px}
+    .success-card{background:#fff;border-radius:18px;box-shadow:0 8px 35px #202a3b0c;overflow:hidden}
+    .success-top{text-align:center;padding:38px 25px 30px;border-bottom:1px solid #f0f0f0}
+    .check-circle{width:94px;height:94px;border-radius:50%;background:#e9f8ef;color:#18a66a;display:grid;place-items:center;margin:0 auto 20px;animation:pop .55s cubic-bezier(.2,.9,.3,1.4) both}
+    .check-circle svg{width:52px;height:52px;stroke-dasharray:100;stroke-dashoffset:100;animation:draw .8s .25s ease forwards}
+    @keyframes pop{from{transform:scale(.2);opacity:0}to{transform:scale(1);opacity:1}}
+    @keyframes draw{to{stroke-dashoffset:0}}
+    .success-top h1{font-size:23px;font-weight:900;color:#15945d;margin-bottom:9px}
+    .success-top p{font-size:13px;color:#888;line-height:2}
+    .order-box{margin:24px;padding:18px 20px;background:#fafafa;border:1px solid #eee;border-radius:12px}
+    .order-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:9px 0;font-size:13px}
+    .order-row span{color:#888}
+    .order-row strong{font-weight:800;direction:ltr;text-align:left}
+    .order-row.total{border-top:1px dashed #ddd;margin-top:7px;padding-top:16px}
+    .order-row.total strong{font-size:19px;color:#e6123d}
+    .section{padding:0 24px 24px}
+    .section-title{font-size:15px;font-weight:800;margin-bottom:15px}
+    .shipping{border:1px solid #eee;border-radius:12px;padding:17px}
+    .shipping-row{display:flex;align-items:flex-start;gap:12px;margin-bottom:15px}
+    .shipping-row:last-child{margin-bottom:0}
+    .shipping-icon{width:35px;height:35px;border-radius:9px;background:#fff0f3;color:#e6123d;display:grid;place-items:center;flex-shrink:0;font-size:17px}
+    .shipping-row div:last-child{min-width:0}
+    .shipping-row b{display:block;font-size:12px;margin-bottom:4px}
+    .shipping-row small{font-size:11px;color:#888;line-height:1.8;overflow-wrap:anywhere}
+    .status{display:inline-flex;align-items:center;gap:5px;background:#eaf8f0;color:#168b55;padding:5px 10px;border-radius:20px;font-size:10px;font-weight:700}
+    .actions{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 24px 26px}
+    .btn{height:48px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:inherit;font-size:13px;font-weight:800;transition:.2s}
+    .btn-primary{background:#e6123d;color:#fff}.btn-primary:hover{background:#c90d33}
+    .btn-outline{border:1px solid #ddd;color:#555;background:#fff}.btn-outline:hover{border-color:#e6123d;color:#e6123d}
+    .foot{text-align:center;font-size:11px;color:#aaa;margin:22px 0 35px;line-height:2}
+    @media(max-width:520px){.container{margin:20px auto}.success-top{padding:30px 18px}.success-top h1{font-size:20px}.order-box{margin:16px}.section{padding:0 16px 20px}.actions{padding:0 16px 20px;grid-template-columns:1fr}.topbar{height:58px}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="logo" href="index.html">گیفتینو<span>.</span></a>
+    <a class="help" href="index.html">بازگشت به فروشگاه</a>
+  </header>
+
+  <main class="container">
+    <section class="success-card">
+      <div class="success-top">
+        <div class="check-circle">
+          <svg viewBox="0 0 52 52" fill="none">
+            <path d="M13 27L22 36L40 17" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h1>سفارش شما با موفقیت ثبت شد!</h1>
+        <p>از خرید شما از گیفتینو سپاسگزاریم.<br>سفارش شما ثبت شده و اطلاعات آن در زیر قابل مشاهده است.</p>
+        <div style="margin-top:15px"><span class="status">✓ سفارش ثبت شده</span></div>
+      </div>
+
+      <div class="order-box">
+        <div class="order-row">
+          <span>شماره سفارش</span>
+          <strong id="orderNumber">—</strong>
+        </div>
+        <div class="order-row">
+          <span>تاریخ ثبت سفارش</span>
+          <strong id="orderDate">—</strong>
+        </div>
+        <div class="order-row total">
+          <span>مبلغ سفارش</span>
+          <strong><b id="orderAmount">۰</b> تومان</strong>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">جزئیات ارسال</h2>
+        <div class="shipping">
+          <div class="shipping-row">
+            <div class="shipping-icon">♙</div>
+            <div>
+              <b>تحویل‌گیرنده</b>
+              <small id="recipient">اطلاعات گیرنده در دسترس نیست</small>
+            </div>
+          </div>
+          <div class="shipping-row">
+            <div class="shipping-icon">⌖</div>
+            <div>
+              <b>آدرس تحویل</b>
+              <small id="address">اطلاعات آدرس در دسترس نیست</small>
+            </div>
+          </div>
+          <div class="shipping-row">
+            <div class="shipping-icon">♧</div>
+            <div>
+              <b>روش ارسال</b>
+              <small id="shippingMethod">ارسال عادی</small>
+            </div>
+          </div>
+          <div class="shipping-row">
+            <div class="shipping-icon">▣</div>
+            <div>
+              <b>وضعیت پرداخت</b>
+              <small id="paymentStatus">ثبت نمایشی پرداخت</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <a class="btn btn-primary" href="orders.html">پیگیری سفارش</a>
+        <a class="btn btn-outline" href="index.html">بازگشت به فروشگاه</a>
+      </div>
+    </section>
+
+    <p class="foot">گیفتینو؛ هدیه‌ای برای ساختن لحظه‌های به‌یادماندنی ❤️<br>این نسخه نمایشی است و اطلاعات سفارش صرفاً در مرورگر نگهداری می‌شود.</p>
+  </main>
+
+  <script>
+    const params = new URLSearchParams(location.search);
+    const stored = (() => {
+      try {
+        return JSON.parse(localStorage.getItem('giftino_completed_order') || 'null');
+      } catch {
+        return null;
+      }
+    })();
+
+    const orderNumber = params.get('order') || stored?.orderNumber || stored?.order || 'ثبت نشده';
+    const amountFromUrl = params.get('amount');
+    const amount = amountFromUrl !== null
+      ? Number(amountFromUrl)
+      : Number(stored?.total || stored?.amount || 0);
+
+    document.getElementById('orderNumber').textContent = orderNumber;
+    document.getElementById('orderAmount').textContent =
+      Math.max(0, amount || 0).toLocaleString('fa-IR');
+
+    const date = stored?.createdAt ? new Date(stored.createdAt) : new Date();
+    document.getElementById('orderDate').textContent =
+      date.toLocaleDateString('fa-IR');
+
+    if (stored) {
+      const recipient = stored.recipient || stored.name || '';
+      const phone = stored.phone || stored.mobile || '';
+      const address = stored.address || '';
+      const city = [stored.city, stored.province].filter(Boolean).join('، ');
+      const shipping = stored.shippingMethod || stored.shipping || 'ارسال عادی';
+      const payment = stored.paymentMethod || stored.payment || 'پرداخت آزمایشی';
+
+      document.getElementById('recipient').textContent =
+        [recipient, phone].filter(Boolean).join(' ـ ') || 'اطلاعات گیرنده در دسترس نیست';
+
+      document.getElementById('address').textContent =
+        [address, city, stored.postalCode].filter(Boolean).join('، ') || 'اطلاعات آدرس در دسترس نیست';
+
+      document.getElementById('shippingMethod').textContent = shipping;
+      document.getElementById('paymentStatus').textContent =
+        payment.toLowerCase().includes('cod') || payment.includes('محل')
+          ? 'پرداخت در محل انتخاب شده است'
+          : 'پرداخت آزمایشی؛ تراکنش بانکی واقعی انجام نشده است';
+    }
+
+    // ذخیره خلاصه سفارش برای صفحه پیگیری نمایشی
+    try {
+      const trackingOrder = {
+        orderNumber,
+        amount: Math.max(0, amount || 0),
+        createdAt: date.toISOString(),
+        status: 'ثبت شده'
+      };
+      localStorage.setItem('giftino_last_order', JSON.stringify(trackingOrder));
+    } catch (e) {}
+  </script>
+</body>
+</html>
